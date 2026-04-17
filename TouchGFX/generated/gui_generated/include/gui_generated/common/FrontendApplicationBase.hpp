@@ -24,7 +24,7 @@ public:
     void gotoScreen1ScreenNoTransition();
 
     // Screen2
-    void gotoScreen2ScreenNoTransition();
+    void gotoScreen2ScreenSlideTransitionEast();
 
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
@@ -35,7 +35,7 @@ protected:
     void gotoScreen1ScreenNoTransitionImpl();
 
     // Screen2
-    void gotoScreen2ScreenNoTransitionImpl();
+    void gotoScreen2ScreenSlideTransitionEastImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

@@ -53,11 +53,12 @@
             "InteractionName": "Interaction1",
             "Trigger": {
               "Type": "TriggerOnEveryTick",
-              "TickCount": 500
+              "TickCount": 30
             },
             "Action": {
               "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
+              "ScreenTransitionType": "ScreenTransitionSlide",
+              "ScreenTransitionDirection": "East",
               "ActionComponent": "Screen2"
             }
           }

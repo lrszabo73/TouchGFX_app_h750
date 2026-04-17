@@ -55,8 +55,8 @@ void Screen1ViewBase::handleTickEvent()
     {
         //Interaction1
         //When every N tick change screen to Screen2
-        //Go to Screen2 with no screen transition
-        application().gotoScreen2ScreenNoTransition();
+        //Go to Screen2 with screen transition towards East
+        application().gotoScreen2ScreenSlideTransitionEast();
         frameCountInteraction1Interval = 0;
     }
 }

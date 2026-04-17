@@ -45,7 +45,7 @@ private:
     /*
      * Tick Counter Declarations
      */
-    static const uint32_t TICK_INTERACTION1_INTERVAL = 500;
+    static const uint32_t TICK_INTERACTION1_INTERVAL = 30;
     uint32_t frameCountInteraction1Interval;
 
 };

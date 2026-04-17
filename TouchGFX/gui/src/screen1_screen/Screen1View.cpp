@@ -20,6 +20,13 @@ void Screen1View::handleTickEvent()
 	circleProgress1.setValue(tickCounter);
 	circleProgress1.invalidate();
 	if(++tickCounter>=100)
+	 {
 		tickCounter=0;
+		screenChange();
+	 }
+}
 
+void Screen1View::screenChange()
+{
+	application().gotoScreen2ScreenSlideTransitionEast();
 }
