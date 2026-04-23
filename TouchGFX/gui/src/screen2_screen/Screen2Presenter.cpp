@@ -16,3 +16,13 @@ void Screen2Presenter::deactivate()
 {
 
 }
+
+void Screen2Presenter::setVoltage(unsigned int Voltage)
+{
+	view.setVoltage(Voltage);
+}
+
+void Screen2Presenter::setBar(bool state)
+{
+	view.setBar(state);
+}

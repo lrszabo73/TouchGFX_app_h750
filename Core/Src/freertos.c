@@ -41,12 +41,14 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
+extern ADC_HandleTypeDef hadc3;
+extern DMA_HandleTypeDef hdma_adc3;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-
+uint8_t Button_State = 0;
+uint16_t Voltage_in = 0;
 /* USER CODE END Variables */
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
@@ -62,6 +64,23 @@ const osThreadAttr_t myTouchGFX_attributes = {
   .stack_size = 8192 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for adcTask */
+osThreadId_t adcTaskHandle;
+const osThreadAttr_t adcTask_attributes = {
+  .name = "adcTask",
+  .stack_size = 512 * 4,
+  .priority = (osPriority_t) osPriorityBelowNormal,
+};
+/* Definitions for adcQueue */
+osMessageQueueId_t adcQueueHandle;
+const osMessageQueueAttr_t adcQueue_attributes = {
+  .name = "adcQueue"
+};
+/* Definitions for butQueue */
+osMessageQueueId_t butQueueHandle;
+const osMessageQueueAttr_t butQueue_attributes = {
+  .name = "butQueue"
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -70,6 +89,7 @@ const osThreadAttr_t myTouchGFX_attributes = {
 
 void StartDefaultTask(void *argument);
 void StartTGFXTask(void *argument);
+void StartADCTask(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -95,6 +115,13 @@ void MX_FREERTOS_Init(void) {
   /* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
 
+  /* Create the queue(s) */
+  /* creation of adcQueue */
+  adcQueueHandle = osMessageQueueNew (16, sizeof(uint16_t), &adcQueue_attributes);
+
+  /* creation of butQueue */
+  butQueueHandle = osMessageQueueNew (2, sizeof(uint8_t), &butQueue_attributes);
+
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
@@ -105,6 +132,9 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of myTouchGFX */
   myTouchGFXHandle = osThreadNew(StartTGFXTask, NULL, &myTouchGFX_attributes);
+
+  /* creation of adcTask */
+  adcTaskHandle = osThreadNew(StartADCTask, NULL, &adcTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -130,6 +160,8 @@ void StartDefaultTask(void *argument)
   for(;;)
   {
 	  HAL_GPIO_TogglePin(LED3_GPIO_Port, LED3_Pin);
+	  Button_State = HAL_GPIO_ReadPin(SW1_GPIO_Port,SW1_Pin);
+	  osMessageQueuePut(butQueueHandle,&Button_State,0,0);
 	  osDelay(200);
   }
   /* USER CODE END StartDefaultTask */
@@ -149,9 +181,37 @@ void StartTGFXTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(5);
+    osDelay(10);
   }
   /* USER CODE END StartTGFXTask */
+}
+
+/* USER CODE BEGIN Header_StartADCTask */
+/**
+* @brief Function implementing the adcTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartADCTask */
+void StartADCTask(void *argument)
+{
+  /* USER CODE BEGIN StartADCTask */
+  /* Infinite loop */
+  for(;;)
+  {
+	  HAL_ADC_Start(&hadc3);
+	  HAL_ADC_PollForConversion(&hadc3,10);
+	  uint16_t adcValue = HAL_ADC_GetValue(&hadc3);
+	  HAL_ADC_Stop(&hadc3);
+	  // 33V -- 4095
+	  // Voltage_in -- adcValue
+	  // adcValue*33 = Voltage_in*4095
+	  // Voltage_in = adcValue*33/4095;
+	  Voltage_in = adcValue*33/4095;
+	  osMessageQueuePut(adcQueueHandle, &Voltage_in ,0 , 0);
+	  osDelay(10);
+  }
+  /* USER CODE END StartADCTask */
 }
 
 /* Private application code --------------------------------------------------*/

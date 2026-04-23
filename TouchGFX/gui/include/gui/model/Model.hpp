@@ -14,8 +14,12 @@ public:
     }
 
     void tick();
+
 protected:
     ModelListener* modelListener;
+    bool Button_State;
+    unsigned int Voltage_in;
+
 };
 
 #endif // MODEL_HPP

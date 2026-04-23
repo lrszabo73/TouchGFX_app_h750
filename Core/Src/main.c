@@ -21,6 +21,7 @@
 #include "FreeRTOS.h"
 #include "cmsis_os2.h"
 #include "adc.h"
+#include "bdma.h"
 #include "crc.h"
 #include "dac.h"
 #include "dma2d.h"
@@ -108,7 +109,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-   HAL_Delay(2000);
+   HAL_Delay(500);
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -125,6 +126,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_BDMA_Init();
   MX_ADC3_Init();
   MX_DAC1_Init();
   MX_FDCAN1_Init();
@@ -146,15 +148,21 @@ int main(void)
   /* Call PreOsInit function */
   MX_TouchGFX_PreOSInit();
   /* USER CODE BEGIN 2 */
-
-
-  //os_Delay(2000);
-  //HAL_GPIO_WritePin(FMC_NBL0_GPIO_Port,FMC_NBL0_Pin,0);
-  //HAL_GPIO_WritePin(FMC_NBL1_GPIO_Port,FMC_NBL1_Pin,0);
-	HAL_GPIO_WritePin(LCD_BL_GPIO_Port, LCD_BL_Pin, 1);
-	HAL_GPIO_WritePin(LCD_RST_GPIO_Port,LCD_RST_Pin, 1);
-	HAL_GPIO_WritePin(LCD_DISP_GPIO_Port,LCD_DISP_Pin, 1);
-	//HAL_Delay(1000);
+  HAL_GPIO_WritePin(LCD_RST_GPIO_Port,LCD_RST_Pin, 0);
+  HAL_GPIO_WritePin(LCD_BL_GPIO_Port, LCD_BL_Pin, 1);
+  uint32_t counter_delay=0;
+	while(++counter_delay<500000)
+	 {
+	  __NOP();
+	 }
+  HAL_GPIO_WritePin(LCD_DISP_GPIO_Port,LCD_DISP_Pin, 1);
+  __NOP();
+  HAL_GPIO_WritePin(LCD_RST_GPIO_Port,LCD_RST_Pin, 1);
+  counter_delay=0;
+  while(++counter_delay<500000)
+   {
+	  __NOP();
+   }
   /* USER CODE END 2 */
 
   /* Init scheduler */

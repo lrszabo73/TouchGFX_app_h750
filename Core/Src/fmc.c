@@ -50,19 +50,19 @@ void MX_FMC_Init(void)
   hsdram1.Init.RowBitsNumber = FMC_SDRAM_ROW_BITS_NUM_12;
   hsdram1.Init.MemoryDataWidth = FMC_SDRAM_MEM_BUS_WIDTH_16;
   hsdram1.Init.InternalBankNumber = FMC_SDRAM_INTERN_BANKS_NUM_4;
-  hsdram1.Init.CASLatency = FMC_SDRAM_CAS_LATENCY_2;
+  hsdram1.Init.CASLatency = FMC_SDRAM_CAS_LATENCY_3;
   hsdram1.Init.WriteProtection = FMC_SDRAM_WRITE_PROTECTION_DISABLE;
   hsdram1.Init.SDClockPeriod = FMC_SDRAM_CLOCK_PERIOD_2;
   hsdram1.Init.ReadBurst = FMC_SDRAM_RBURST_ENABLE;
   hsdram1.Init.ReadPipeDelay = FMC_SDRAM_RPIPE_DELAY_2;
   /* SdramTiming */
-  SdramTiming.LoadToActiveDelay = 3;
-  SdramTiming.ExitSelfRefreshDelay = 12;
-  SdramTiming.SelfRefreshTime = 7;
-  SdramTiming.RowCycleDelay = 9;
-  SdramTiming.WriteRecoveryTime = 3;
-  SdramTiming.RPDelay = 4;
-  SdramTiming.RCDDelay = 4;
+  SdramTiming.LoadToActiveDelay = 2;
+  SdramTiming.ExitSelfRefreshDelay = 9;
+  SdramTiming.SelfRefreshTime = 5;
+  SdramTiming.RowCycleDelay = 7;
+  SdramTiming.WriteRecoveryTime = 2;
+  SdramTiming.RPDelay = 3;
+  SdramTiming.RCDDelay = 3;
 
   if (HAL_SDRAM_Init(&hsdram1, &SdramTiming) != HAL_OK)
   {
@@ -74,11 +74,11 @@ void MX_FMC_Init(void)
 	is42s32400.RefreshMode = IS42S32800J_AUTOREFRESH_MODE_CMD;
 	is42s32400.TargetBank = FMC_SDRAM_BANK1;
 	is42s32400.RefreshRate = REFRESH_COUNT;
-	//is42s32400.BurstLength = IS42S32800J_BURST_LENGTH_1;
-	//is42s32400.BurstType = IS42S32800J_BURST_TYPE_SEQUENTIAL;
-	is42s32400.CASLatency = IS42S32800J_CAS_LATENCY_2;
+	is42s32400.BurstLength = IS42S32800J_BURST_LENGTH_1;
+	is42s32400.BurstType = IS42S32800J_BURST_TYPE_SEQUENTIAL;
+	is42s32400.CASLatency = IS42S32800J_CAS_LATENCY_3;
 	is42s32400.OperationMode =IS42S32800J_OPERATING_MODE_STANDARD;
-	//is42s32400.WriteBurstMode = IS42S32800J_WRITEBURST_MODE_SINGLE;
+	is42s32400.WriteBurstMode = IS42S32800J_WRITEBURST_MODE_SINGLE;
 
 	if(IS42S32800J_Init(&hsdram1,&is42s32400)!=IS42S32800J_OK)
 	{

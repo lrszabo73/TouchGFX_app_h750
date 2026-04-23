@@ -25,8 +25,9 @@ public:
      */
     virtual void deactivate();
 
-    virtual ~Screen2Presenter() {}
-
+    virtual ~Screen2Presenter(){}
+    virtual void setVoltage( unsigned int Volt);
+    virtual void setBar(bool state);
 private:
     Screen2Presenter();
 

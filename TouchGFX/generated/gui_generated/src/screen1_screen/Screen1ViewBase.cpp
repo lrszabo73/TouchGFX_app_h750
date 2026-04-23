@@ -19,10 +19,6 @@ Screen1ViewBase::Screen1ViewBase() :
     box1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     add(box1);
 
-    image1.setXY(350, 55);
-    image1.setBitmap(touchgfx::Bitmap(BITMAP_LOGO_OFICIAL_COR_SMALL_ID));
-    add(image1);
-
     circleProgress1.setXY(95, 165);
     circleProgress1.setProgressIndicatorPosition(0, 0, 150, 150);
     circleProgress1.setRange(0, 100, 20, 0);
@@ -36,6 +32,10 @@ Screen1ViewBase::Screen1ViewBase() :
     circleProgress1.setPainter(circleProgress1Painter);
     circleProgress1.setValue(1);
     add(circleProgress1);
+
+    image1.setXY(400, 90);
+    image1.setBitmap(touchgfx::Bitmap(BITMAP_PLANTVISION_SMALL_ID));
+    add(image1);
 }
 
 Screen1ViewBase::~Screen1ViewBase()
@@ -54,9 +54,9 @@ void Screen1ViewBase::handleTickEvent()
     if(frameCountInteraction1Interval == TICK_INTERACTION1_INTERVAL)
     {
         //Interaction1
-        //When every N tick change screen to Screen2
-        //Go to Screen2 with screen transition towards East
-        application().gotoScreen2ScreenSlideTransitionEast();
+        //When every N tick change screen to Screen3
+        //Go to Screen3 with screen transition towards East
+        application().gotoScreen3ScreenSlideTransitionEast();
         frameCountInteraction1Interval = 0;
     }
 }

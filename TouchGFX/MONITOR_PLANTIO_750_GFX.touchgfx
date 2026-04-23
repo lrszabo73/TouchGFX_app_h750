@@ -17,15 +17,6 @@
             }
           },
           {
-            "Type": "Image",
-            "Name": "image1",
-            "X": 350,
-            "Y": 55,
-            "Width": 400,
-            "Height": 356,
-            "RelativeFilename": "Logo-Oficial-COR_small.png"
-          },
-          {
             "Type": "CircleProgress",
             "Name": "circleProgress1",
             "X": 95,
@@ -46,6 +37,15 @@
             "ProgressRangeMax": 100,
             "ProgressRangeSteps": 20,
             "ProgressInitialValue": 1
+          },
+          {
+            "Type": "Image",
+            "Name": "image1",
+            "X": 400,
+            "Y": 90,
+            "Width": 274,
+            "Height": 300,
+            "RelativeFilename": "plantVISION_small.png"
           }
         ],
         "Interactions": [
@@ -59,7 +59,7 @@
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionSlide",
               "ScreenTransitionDirection": "East",
-              "ActionComponent": "Screen2"
+              "ActionComponent": "Screen3"
             }
           }
         ]
@@ -82,10 +82,10 @@
           {
             "Type": "Box",
             "Name": "box2",
-            "X": 109,
-            "Y": 117,
-            "Width": 274,
-            "Height": 82,
+            "X": 33,
+            "Y": 28,
+            "Width": 354,
+            "Height": 431,
             "Color": {
               "Red": 51,
               "Green": 189,
@@ -95,8 +95,8 @@
           {
             "Type": "Shape",
             "Name": "shape1",
-            "X": 484,
-            "Y": 117,
+            "X": 674,
+            "Y": 28,
             "Width": 80,
             "Height": 80,
             "Color": {
@@ -126,10 +126,10 @@
           {
             "Type": "Shape",
             "Name": "shape2",
-            "X": 490,
-            "Y": 261,
-            "Width": 100,
-            "Height": 105,
+            "X": 434,
+            "Y": 33,
+            "Width": 85,
+            "Height": 83,
             "Color": {
               "Red": 247,
               "Green": 20,
@@ -158,8 +158,8 @@
           {
             "Type": "Circle",
             "Name": "circle1",
-            "X": 206,
-            "Y": 295,
+            "X": 554,
+            "Y": 34,
             "Width": 80,
             "Height": 80,
             "Color": {
@@ -172,6 +172,170 @@
             "Radius": 40.0,
             "EndAngle": 360.0,
             "CapPrecision": "Butt"
+          },
+          {
+            "Type": "Gauge",
+            "Name": "gauge1",
+            "X": 474,
+            "Y": 165,
+            "Width": 240,
+            "Height": 240,
+            "Preset": "alternate_theme\\presets\\gauges\\medium\\dark_precision.json",
+            "FileNameBackground": "__generated\\alternate_theme_images_widgets_gauge_medium_backgrounds_dark_precision.png",
+            "RotationCenterX": 120.0,
+            "RotationCenterY": 120.0,
+            "StartAngle": -113.0,
+            "EndAngle": 112.0,
+            "RangeMax": 50.0,
+            "InitialValue": 5.0,
+            "Easing": "Linear",
+            "EasingOption": "In",
+            "FileNameNeedle": "__generated\\alternate_theme_images_widgets_gauge_medium_needles_rough.png",
+            "NeedleRotationCenterX": 10.0,
+            "NeedleRotationCenterY": 65.0,
+            "NeedleMovingRenderingAlgorithm": "Bilinear Interpolation",
+            "NeedleSteadyRenderingAlgorithm": "Bilinear Interpolation",
+            "ArcColor": {
+              "Red": 20,
+              "Green": 151,
+              "Blue": 197
+            },
+            "ArcCapStyle": "Butt"
+          },
+          {
+            "Type": "TextProgress",
+            "Name": "textProgress1",
+            "X": 114,
+            "Y": 190,
+            "Width": 175,
+            "Height": 50,
+            "TextId": "__SingleUse_5B16",
+            "Color": {
+              "Red": 12,
+              "Green": 27,
+              "Blue": 55
+            },
+            "Preset": "alternate_theme\\presets\\textprogress\\rounded.json",
+            "FileNameBackground": "__generated\\alternate_theme_images_widgets_textprogress_backgrounds_rounded_light.png",
+            "IndicatorPositionX": 12,
+            "IndicatorPositionY": 10,
+            "IndicatorPositionWidth": 150,
+            "IndicatorPositionHeight": 30,
+            "ProgressRangeMax": 100,
+            "ProgressInitialValue": 60
+          },
+          {
+            "Type": "ImageProgress",
+            "Name": "imageProgress1",
+            "X": 51,
+            "Y": 253,
+            "Width": 300,
+            "Height": 10,
+            "FileNameProgress": "__generated\\alternate_theme_images_widgets_imageprogress_plain_normal_medium_active.png",
+            "AnchorAtZero": true,
+            "Direction": "Right",
+            "Preset": "alternate_theme\\presets\\imageprogress\\plain\\normal\\medium_active.json",
+            "FileNameBackground": "__generated\\alternate_theme_images_widgets_imageprogress_plain_normal_medium.png",
+            "IndicatorPositionWidth": 300,
+            "IndicatorPositionHeight": 10,
+            "ProgressRangeMax": 100,
+            "ProgressInitialValue": 60
+          }
+        ],
+        "Interactions": []
+      },
+      {
+        "Name": "Screen3",
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "box1",
+            "Width": 800,
+            "Height": 480,
+            "Color": {
+              "Red": 17,
+              "Green": 46,
+              "Blue": 16
+            }
+          },
+          {
+            "Type": "Box",
+            "Name": "box2",
+            "Width": 800,
+            "Height": 46,
+            "Color": {
+              "Red": 37,
+              "Green": 52,
+              "Blue": 74
+            }
+          },
+          {
+            "Type": "DigitalClock",
+            "Name": "digitalClock1",
+            "X": 671,
+            "Y": 11,
+            "Width": 100,
+            "Height": 25,
+            "TextColor": {
+              "Red": 250,
+              "Green": 242,
+              "Blue": 242
+            },
+            "TextId": "__SingleUse_3Q8T",
+            "DisplaySeconds": true,
+            "DisplayLeadingZeroForHourIndicator": true,
+            "InitialHour": 10,
+            "InitialMinute": 10
+          },
+          {
+            "Type": "ButtonWithLabel",
+            "Name": "buttonWithLabel1",
+            "Width": 240,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_pressed.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_normal.png",
+            "TextId": "__SingleUse_8QRT",
+            "ReleasedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "PressedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "TextRotation": "0",
+            "Preset": "alternate_theme\\presets\\button\\regular\\height_50\\medium_rounded_normal.json"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 574,
+            "Y": 12,
+            "Width": 73,
+            "Height": 23,
+            "TextId": "__SingleUse_GH6S",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "AnimatedImage",
+            "Name": "animatedImage1",
+            "X": 222,
+            "Y": 83,
+            "Width": 356,
+            "Height": 356,
+            "FileNameFirst": "frame_0001.png",
+            "FileNameLast": "frame_0016.png",
+            "UpdateTicksInterval": 400,
+            "StartOnLoad": true,
+            "LoopEnabled": true
           }
         ],
         "Interactions": []

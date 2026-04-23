@@ -13,6 +13,8 @@
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <gui/screen2_screen/Screen2View.hpp>
 #include <gui/screen2_screen/Screen2Presenter.hpp>
+#include <gui/screen3_screen/Screen3View.hpp>
+#include <gui/screen3_screen/Screen3Presenter.hpp>
 
 using namespace touchgfx;
 
@@ -46,15 +48,15 @@ void FrontendApplicationBase::gotoScreen1ScreenNoTransitionImpl()
     touchgfx::makeTransition<Screen1View, Screen1Presenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }
 
-// Screen2
+// Screen3
 
-void FrontendApplicationBase::gotoScreen2ScreenSlideTransitionEast()
+void FrontendApplicationBase::gotoScreen3ScreenSlideTransitionEast()
 {
-    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoScreen2ScreenSlideTransitionEastImpl);
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoScreen3ScreenSlideTransitionEastImpl);
     pendingScreenTransitionCallback = &transitionCallback;
 }
 
-void FrontendApplicationBase::gotoScreen2ScreenSlideTransitionEastImpl()
+void FrontendApplicationBase::gotoScreen3ScreenSlideTransitionEastImpl()
 {
-    touchgfx::makeTransition<Screen2View, Screen2Presenter, touchgfx::SlideTransition<EAST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+    touchgfx::makeTransition<Screen3View, Screen3Presenter, touchgfx::SlideTransition<EAST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }

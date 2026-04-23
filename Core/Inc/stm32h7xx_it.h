@@ -58,6 +58,7 @@ void TIM6_DAC_IRQHandler(void);
 void TIM7_IRQHandler(void);
 void LTDC_IRQHandler(void);
 void DMA2D_IRQHandler(void);
+void BDMA_Channel0_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */

@@ -11,6 +11,9 @@
 #include <touchgfx/widgets/canvas/Shape.hpp>
 #include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 #include <touchgfx/widgets/canvas/Circle.hpp>
+#include <touchgfx/widgets/Gauge.hpp>
+#include <touchgfx/containers/progress_indicators/TextProgress.hpp>
+#include <touchgfx/containers/progress_indicators/ImageProgress.hpp>
 
 class Screen2ViewBase : public touchgfx::View<Screen2Presenter>
 {
@@ -36,6 +39,9 @@ protected:
     touchgfx::PainterRGB565 shape2Painter;
     touchgfx::Circle circle1;
     touchgfx::PainterRGB565 circle1Painter;
+    touchgfx::Gauge gauge1;
+    touchgfx::TextProgress textProgress1;
+    touchgfx::ImageProgress imageProgress1;
 
 private:
 

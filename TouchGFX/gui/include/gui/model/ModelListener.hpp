@@ -14,6 +14,9 @@ public:
     {
         model = m;
     }
+    virtual void setVoltage( unsigned int Voltage) {}
+    virtual void setBar(bool state) {}
+
 protected:
     Model* model;
 };

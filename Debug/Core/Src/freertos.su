@@ -1,3 +1,4 @@
-../Core/Src/freertos.c:81:6:MX_FREERTOS_Init	8	static
-../Core/Src/freertos.c:126:6:StartDefaultTask	16	static
-../Core/Src/freertos.c:145:6:StartTGFXTask	16	static
+../Core/Src/freertos.c:101:6:MX_FREERTOS_Init	8	static
+../Core/Src/freertos.c:156:6:StartDefaultTask	16	static
+../Core/Src/freertos.c:177:6:StartTGFXTask	16	static
+../Core/Src/freertos.c:196:6:StartADCTask	24	static

@@ -7,10 +7,14 @@
 class Screen2View : public Screen2ViewBase
 {
 public:
+    uint8_t percentage = 0;
     Screen2View();
     virtual ~Screen2View() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+    virtual void setVoltage(unsigned int Voltage);
+    virtual void setBar(bool state);
+
 protected:
 };
 

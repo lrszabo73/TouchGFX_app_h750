@@ -4,6 +4,8 @@
 #include <gui_generated/screen2_screen/Screen2ViewBase.hpp>
 #include <touchgfx/canvas_widget_renderer/CanvasWidgetRenderer.hpp>
 #include <touchgfx/Color.hpp>
+#include <images/BitmapDatabase.hpp>
+#include <texts/TextKeysAndLanguages.hpp>
 
 Screen2ViewBase::Screen2ViewBase()
 {
@@ -17,11 +19,11 @@ Screen2ViewBase::Screen2ViewBase()
     box1.setColor(touchgfx::Color::getColorFromRGB(55, 83, 158));
     add(box1);
 
-    box2.setPosition(109, 117, 274, 82);
+    box2.setPosition(33, 28, 354, 431);
     box2.setColor(touchgfx::Color::getColorFromRGB(51, 189, 42));
     add(box2);
 
-    shape1.setPosition(484, 117, 80, 80);
+    shape1.setPosition(674, 28, 80, 80);
     shape1.setOrigin(0.0f, 0.0f);
     shape1.setScale(1.0f, 1.0f);
     shape1.setAngle(0.0f);
@@ -31,7 +33,7 @@ Screen2ViewBase::Screen2ViewBase()
     shape1.setShape(shape1Points);
     add(shape1);
 
-    shape2.setPosition(490, 261, 100, 105);
+    shape2.setPosition(434, 33, 85, 83);
     shape2.setOrigin(0.0f, 0.0f);
     shape2.setScale(1.0f, 1.0f);
     shape2.setAngle(0.0f);
@@ -41,7 +43,7 @@ Screen2ViewBase::Screen2ViewBase()
     shape2.setShape(shape2Points);
     add(shape2);
 
-    circle1.setPosition(206, 295, 80, 80);
+    circle1.setPosition(554, 34, 80, 80);
     circle1.setCenter(40, 40);
     circle1.setRadius(40);
     circle1.setLineWidth(0);
@@ -49,6 +51,36 @@ Screen2ViewBase::Screen2ViewBase()
     circle1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     circle1.setPainter(circle1Painter);
     add(circle1);
+
+    gauge1.setBackground(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_GAUGE_MEDIUM_BACKGROUNDS_DARK_PRECISION_ID));
+    gauge1.setPosition(474, 165, 240, 240);
+    gauge1.setCenter(120, 120);
+    gauge1.setStartEndAngle(-113, 112);
+    gauge1.setRange(0, 50);
+    gauge1.setValue(5);
+    gauge1.setNeedle(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_GAUGE_MEDIUM_NEEDLES_ROUGH_ID, 10, 65);
+    gauge1.setMovingNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+    gauge1.setSteadyNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+    add(gauge1);
+
+    textProgress1.setXY(114, 190);
+    textProgress1.setProgressIndicatorPosition(12, 10, 150, 30);
+    textProgress1.setRange(0, 100);
+    textProgress1.setColor(touchgfx::Color::getColorFromRGB(12, 27, 55));
+    textProgress1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_5B16));
+    textProgress1.setBackground(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_TEXTPROGRESS_BACKGROUNDS_ROUNDED_LIGHT_ID));
+    textProgress1.setValue(60);
+    add(textProgress1);
+
+    imageProgress1.setXY(51, 253);
+    imageProgress1.setProgressIndicatorPosition(0, 0, 300, 10);
+    imageProgress1.setRange(0, 100);
+    imageProgress1.setDirection(touchgfx::AbstractDirectionProgress::RIGHT);
+    imageProgress1.setBackground(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_IMAGEPROGRESS_PLAIN_NORMAL_MEDIUM_ID));
+    imageProgress1.setBitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_IMAGEPROGRESS_PLAIN_NORMAL_MEDIUM_ACTIVE_ID);
+    imageProgress1.setValue(60);
+    imageProgress1.setAnchorAtZero(true);
+    add(imageProgress1);
 }
 
 Screen2ViewBase::~Screen2ViewBase()
