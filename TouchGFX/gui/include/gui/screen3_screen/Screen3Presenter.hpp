@@ -26,7 +26,7 @@ public:
     virtual void deactivate();
 
     virtual ~Screen3Presenter() {}
-
+    virtual void setScreen (bool state);
 private:
     Screen3Presenter();
 

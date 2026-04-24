@@ -66,7 +66,7 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd_ex.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hcd.h \
  ../Drivers/CMSIS/RTOS2/Include/cmsis_os2.h \
- ../TouchGFX/App/app_touchgfx.h
+ ../TouchGFX/App/app_touchgfx.h ../Core/Inc/keyboard.h
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../Core/Inc/FreeRTOSConfig.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
@@ -136,3 +136,4 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hcd.h:
 ../Drivers/CMSIS/RTOS2/Include/cmsis_os2.h:
 ../TouchGFX/App/app_touchgfx.h:
+../Core/Inc/keyboard.h:

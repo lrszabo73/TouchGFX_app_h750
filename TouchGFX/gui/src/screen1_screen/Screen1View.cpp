@@ -28,5 +28,5 @@ void Screen1View::handleTickEvent()
 
 void Screen1View::screenChange()
 {
-	application().gotoScreen3ScreenSlideTransitionEast();
+	application().gotoScreen4ScreenSlideTransitionEast();
 }

@@ -41,7 +41,7 @@ Screen3ViewBase::Screen3ViewBase()
     textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_GH6S));
     add(textArea1);
 
-    animatedImage1.setXY(222, 83);
+    animatedImage1.setXY(415, 84);
     animatedImage1.setBitmaps(BITMAP_FRAME_0001_ID, BITMAP_FRAME_0016_ID);
     animatedImage1.setUpdateTicksInterval(24);
     animatedImage1.startAnimation(false, true, true);

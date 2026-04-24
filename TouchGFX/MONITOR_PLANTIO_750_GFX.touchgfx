@@ -59,7 +59,7 @@
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionSlide",
               "ScreenTransitionDirection": "East",
-              "ActionComponent": "Screen3"
+              "ActionComponent": "Screen4"
             }
           }
         ]
@@ -327,8 +327,8 @@
           {
             "Type": "AnimatedImage",
             "Name": "animatedImage1",
-            "X": 222,
-            "Y": 83,
+            "X": 415,
+            "Y": 84,
             "Width": 356,
             "Height": 356,
             "FileNameFirst": "frame_0001.png",
@@ -336,6 +336,20 @@
             "UpdateTicksInterval": 400,
             "StartOnLoad": true,
             "LoopEnabled": true
+          }
+        ],
+        "Interactions": []
+      },
+      {
+        "Name": "Screen4",
+        "Components": [
+          {
+            "Type": "Image",
+            "Name": "image1",
+            "Y": 5,
+            "Width": 800,
+            "Height": 471,
+            "RelativeFilename": "plant_vision_background_800x480.png"
           }
         ],
         "Interactions": []

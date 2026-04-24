@@ -23,8 +23,8 @@ public:
     // Screen1
     void gotoScreen1ScreenNoTransition();
 
-    // Screen3
-    void gotoScreen3ScreenSlideTransitionEast();
+    // Screen4
+    void gotoScreen4ScreenSlideTransitionEast();
 
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
@@ -34,8 +34,8 @@ protected:
     // Screen1
     void gotoScreen1ScreenNoTransitionImpl();
 
-    // Screen3
-    void gotoScreen3ScreenSlideTransitionEastImpl();
+    // Screen4
+    void gotoScreen4ScreenSlideTransitionEastImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

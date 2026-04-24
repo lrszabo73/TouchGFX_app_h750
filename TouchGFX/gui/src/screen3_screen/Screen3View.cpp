@@ -14,3 +14,8 @@ void Screen3View::tearDownScreen()
 {
     Screen3ViewBase::tearDownScreen();
 }
+
+void Screen3View::setScreen(bool state)
+{
+
+}

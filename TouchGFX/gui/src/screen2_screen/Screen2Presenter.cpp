@@ -26,3 +26,5 @@ void Screen2Presenter::setBar(bool state)
 {
 	view.setBar(state);
 }
+
+

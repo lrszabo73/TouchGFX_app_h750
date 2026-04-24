@@ -27,6 +27,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "app_touchgfx.h"
+#include "keyboard.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -47,7 +48,8 @@ extern DMA_HandleTypeDef hdma_adc3;
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-uint8_t Button_State = 0;
+
+
 uint16_t Voltage_in = 0;
 /* USER CODE END Variables */
 /* Definitions for defaultTask */
@@ -120,10 +122,11 @@ void MX_FREERTOS_Init(void) {
   adcQueueHandle = osMessageQueueNew (16, sizeof(uint16_t), &adcQueue_attributes);
 
   /* creation of butQueue */
-  butQueueHandle = osMessageQueueNew (2, sizeof(uint8_t), &butQueue_attributes);
+  //butQueueHandle = osMessageQueueNew (8, sizeof(Button_State), &butQueue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
+  butQueueHandle = osMessageQueueNew (8, sizeof(Msg_Button_State), &butQueue_attributes);
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
@@ -156,12 +159,15 @@ void MX_FREERTOS_Init(void) {
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
+  Msg_Button_State button;
   /* Infinite loop */
   for(;;)
   {
 	  HAL_GPIO_TogglePin(LED3_GPIO_Port, LED3_Pin);
-	  Button_State = HAL_GPIO_ReadPin(SW1_GPIO_Port,SW1_Pin);
-	  osMessageQueuePut(butQueueHandle,&Button_State,0,0);
+	  button.sw1 = HAL_GPIO_ReadPin(SW1_GPIO_Port,SW1_Pin);
+	  button.sw4 = HAL_GPIO_ReadPin(SW4_GPIO_Port, SW4_Pin);
+	  button.sw5 = HAL_GPIO_ReadPin(SW5_GPIO_Port, SW5_Pin);
+	  osMessageQueuePut(butQueueHandle,&button,0,0);
 	  osDelay(200);
   }
   /* USER CODE END StartDefaultTask */

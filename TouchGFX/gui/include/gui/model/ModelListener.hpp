@@ -16,6 +16,7 @@ public:
     }
     virtual void setVoltage( unsigned int Voltage) {}
     virtual void setBar(bool state) {}
+    virtual void setScreen (bool state) {}
 
 protected:
     Model* model;

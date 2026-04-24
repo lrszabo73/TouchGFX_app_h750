@@ -17,7 +17,11 @@ public:
 
 protected:
     ModelListener* modelListener;
-    bool Button_State;
+    bool Button_State_sw1;
+    bool Button_State_sw4;
+    bool Button_State_sw5;
+    bool Button_State_sw6;
+    bool Button_State_sw7;
     unsigned int Voltage_in;
 
 };

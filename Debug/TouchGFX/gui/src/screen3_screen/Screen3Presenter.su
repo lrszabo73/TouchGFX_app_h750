@@ -8,8 +8,10 @@
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:11:13:virtual ModelListener::~ModelListener()	16	static
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:17:18:virtual void ModelListener::setVoltage(unsigned int)	16	static
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:18:18:virtual void ModelListener::setBar(bool)	16	static
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:19:18:virtual void ModelListener::setScreen(bool)	16	static
 ../TouchGFX/gui/include/gui/screen3_screen/Screen3Presenter.hpp:28:13:Screen3Presenter::~Screen3Presenter()	16	static
 ../TouchGFX/gui/include/gui/screen3_screen/Screen3Presenter.hpp:28:13:virtual Screen3Presenter::~Screen3Presenter()	16	static
 ../TouchGFX/gui/src/screen3_screen/Screen3Presenter.cpp:4:1:Screen3Presenter::Screen3Presenter(Screen3View&)	16	static
 ../TouchGFX/gui/src/screen3_screen/Screen3Presenter.cpp:10:6:virtual void Screen3Presenter::activate()	16	static
 ../TouchGFX/gui/src/screen3_screen/Screen3Presenter.cpp:15:6:virtual void Screen3Presenter::deactivate()	16	static
+../TouchGFX/gui/src/screen3_screen/Screen3Presenter.cpp:20:6:virtual void Screen3Presenter::setScreen(bool)	16	static
