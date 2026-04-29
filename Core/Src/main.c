@@ -28,7 +28,6 @@
 #include "fdcan.h"
 #include "i2c.h"
 #include "ltdc.h"
-#include "sdmmc.h"
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
@@ -54,6 +53,7 @@
 #define TFT_BUFFER_SIZE (TFT_HOR_RES*TFT_VER_RES*2) //1152000 bytes
 
 #define COLOR_BUF (((0x7f>>3)<<11)|((0x7f>>2)<<5)|(0x7f>>3)) // Convert colors to RGB565
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -78,7 +78,20 @@ void MX_FREERTOS_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void delay_nop()
+{
+	__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();
+	__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();
+}
 
+void delay_us(uint32_t delay)
+ {
+	uint32_t counter_delay=0;
+	while(++counter_delay<delay)
+	 {
+		delay_nop();
+	 }
+ }
 /* USER CODE END 0 */
 
 /**
@@ -109,7 +122,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-   HAL_Delay(500);
+   HAL_Delay(2000);
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -135,7 +148,6 @@ int main(void)
   MX_I2C1_Init();
   MX_I2C2_Init();
   MX_LTDC_Init();
-  MX_SDMMC1_SD_Init();
   MX_SPI1_Init();
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
@@ -148,21 +160,15 @@ int main(void)
   /* Call PreOsInit function */
   MX_TouchGFX_PreOSInit();
   /* USER CODE BEGIN 2 */
+  HAL_GPIO_WritePin(LCD_DISP_GPIO_Port,LCD_DISP_Pin, 0);
+  delay_nop();
   HAL_GPIO_WritePin(LCD_RST_GPIO_Port,LCD_RST_Pin, 0);
   HAL_GPIO_WritePin(LCD_BL_GPIO_Port, LCD_BL_Pin, 1);
-  uint32_t counter_delay=0;
-	while(++counter_delay<500000)
-	 {
-	  __NOP();
-	 }
-  HAL_GPIO_WritePin(LCD_DISP_GPIO_Port,LCD_DISP_Pin, 1);
-  __NOP();
+  delay_us(2000000); //200ms
   HAL_GPIO_WritePin(LCD_RST_GPIO_Port,LCD_RST_Pin, 1);
-  counter_delay=0;
-  while(++counter_delay<500000)
-   {
-	  __NOP();
-   }
+  delay_us(2000000); //200ms
+  HAL_GPIO_WritePin(LCD_DISP_GPIO_Port,LCD_DISP_Pin, 1);
+
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -230,14 +236,14 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2
                               |RCC_CLOCKTYPE_D3PCLK1|RCC_CLOCKTYPE_D1PCLK1;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-  RCC_ClkInitStruct.SYSCLKDivider = RCC_SYSCLK_DIV2;
+  RCC_ClkInitStruct.SYSCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB3CLKDivider = RCC_APB3_DIV2;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV2;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_APB2_DIV2;
   RCC_ClkInitStruct.APB4CLKDivider = RCC_APB4_DIV2;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
   {
     Error_Handler();
   }
@@ -253,8 +259,17 @@ void PeriphCommonClock_Config(void)
 
   /** Initializes the peripherals clock
   */
-  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_I2C2|RCC_PERIPHCLK_I2C1
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_FMC|RCC_PERIPHCLK_ADC
+                              |RCC_PERIPHCLK_I2C2|RCC_PERIPHCLK_I2C1
                               |RCC_PERIPHCLK_LTDC;
+  PeriphClkInitStruct.PLL2.PLL2M = 2;
+  PeriphClkInitStruct.PLL2.PLL2N = 12;
+  PeriphClkInitStruct.PLL2.PLL2P = 2;
+  PeriphClkInitStruct.PLL2.PLL2Q = 2;
+  PeriphClkInitStruct.PLL2.PLL2R = 1;
+  PeriphClkInitStruct.PLL2.PLL2RGE = RCC_PLL2VCIRANGE_3;
+  PeriphClkInitStruct.PLL2.PLL2VCOSEL = RCC_PLL2VCOMEDIUM;
+  PeriphClkInitStruct.PLL2.PLL2FRACN = 0;
   PeriphClkInitStruct.PLL3.PLL3M = 2;
   PeriphClkInitStruct.PLL3.PLL3N = 12;
   PeriphClkInitStruct.PLL3.PLL3P = 2;
@@ -263,7 +278,9 @@ void PeriphCommonClock_Config(void)
   PeriphClkInitStruct.PLL3.PLL3RGE = RCC_PLL3VCIRANGE_3;
   PeriphClkInitStruct.PLL3.PLL3VCOSEL = RCC_PLL3VCOMEDIUM;
   PeriphClkInitStruct.PLL3.PLL3FRACN = 0;
+  PeriphClkInitStruct.FmcClockSelection = RCC_FMCCLKSOURCE_PLL2;
   PeriphClkInitStruct.I2c123ClockSelection = RCC_I2C123CLKSOURCE_PLL3;
+  PeriphClkInitStruct.AdcClockSelection = RCC_ADCCLKSOURCE_PLL2;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {
     Error_Handler();

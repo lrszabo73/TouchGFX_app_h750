@@ -122,7 +122,7 @@ void MX_FREERTOS_Init(void) {
   adcQueueHandle = osMessageQueueNew (16, sizeof(uint16_t), &adcQueue_attributes);
 
   /* creation of butQueue */
-  //butQueueHandle = osMessageQueueNew (8, sizeof(Button_State), &butQueue_attributes);
+  butQueueHandle = osMessageQueueNew (8, sizeof(uint8_t), &butQueue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -160,6 +160,7 @@ void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
   Msg_Button_State button;
+  uint8_t count_rst=0;
   /* Infinite loop */
   for(;;)
   {
@@ -167,6 +168,19 @@ void StartDefaultTask(void *argument)
 	  button.sw1 = HAL_GPIO_ReadPin(SW1_GPIO_Port,SW1_Pin);
 	  button.sw4 = HAL_GPIO_ReadPin(SW4_GPIO_Port, SW4_Pin);
 	  button.sw5 = HAL_GPIO_ReadPin(SW5_GPIO_Port, SW5_Pin);
+	  button.sw8 = HAL_GPIO_ReadPin(SOFT_RST_GPIO_Port,SOFT_RST_Pin);
+	  if(button.sw8)
+	   {
+
+		  if(++count_rst>10)
+		   {
+			  __NVIC_SystemReset();
+		   }
+	   }
+	  else
+	   {
+		  count_rst=0;
+	   }
 	  osMessageQueuePut(butQueueHandle,&button,0,0);
 	  osDelay(200);
   }

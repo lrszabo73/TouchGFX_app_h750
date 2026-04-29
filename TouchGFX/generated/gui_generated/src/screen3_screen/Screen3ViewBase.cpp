@@ -13,7 +13,7 @@ Screen3ViewBase::Screen3ViewBase()
     add(__background);
 
     box1.setPosition(0, 0, 800, 480);
-    box1.setColor(touchgfx::Color::getColorFromRGB(17, 46, 16));
+    box1.setColor(touchgfx::Color::getColorFromRGB(13, 13, 31));
     add(box1);
 
     box2.setPosition(0, 0, 800, 46);
@@ -40,12 +40,6 @@ Screen3ViewBase::Screen3ViewBase()
     textArea1.setLinespacing(0);
     textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_GH6S));
     add(textArea1);
-
-    animatedImage1.setXY(415, 84);
-    animatedImage1.setBitmaps(BITMAP_FRAME_0001_ID, BITMAP_FRAME_0016_ID);
-    animatedImage1.setUpdateTicksInterval(24);
-    animatedImage1.startAnimation(false, true, true);
-    add(animatedImage1);
 }
 
 Screen3ViewBase::~Screen3ViewBase()

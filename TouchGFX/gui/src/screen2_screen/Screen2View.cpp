@@ -36,6 +36,10 @@ void Screen2View::setBar(bool state)
 			percentage=0;
 
 	 }
+}
 
 
+void Screen2View::setScreen(bool state)
+{
+	if(state)setScreen4();
 }

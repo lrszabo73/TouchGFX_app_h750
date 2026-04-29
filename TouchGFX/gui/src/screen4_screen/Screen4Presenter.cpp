@@ -16,3 +16,8 @@ void Screen4Presenter::deactivate()
 {
 
 }
+
+void Screen4Presenter::setScreen(bool state)
+{
+	view.setScreen(state);
+}

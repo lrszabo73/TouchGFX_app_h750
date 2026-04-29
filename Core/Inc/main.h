@@ -61,6 +61,8 @@ void Error_Handler(void);
 #define HEART_GPIO_Port GPIOE
 #define SPI1_NSS_Pin GPIO_PIN_8
 #define SPI1_NSS_GPIO_Port GPIOI
+#define SOFT_RST_Pin GPIO_PIN_13
+#define SOFT_RST_GPIO_Port GPIOC
 #define ENABLE_MICRO_Pin GPIO_PIN_1
 #define ENABLE_MICRO_GPIO_Port GPIOC
 #define RST_GNSS_Pin GPIO_PIN_4

@@ -9,3 +9,4 @@
 ../TouchGFX/gui/src/screen2_screen/Screen2View.cpp:13:6:virtual void Screen2View::tearDownScreen()	16	static
 ../TouchGFX/gui/src/screen2_screen/Screen2View.cpp:18:6:virtual void Screen2View::setVoltage(unsigned int)	16	static
 ../TouchGFX/gui/src/screen2_screen/Screen2View.cpp:24:6:virtual void Screen2View::setBar(bool)	16	static
+../TouchGFX/gui/src/screen2_screen/Screen2View.cpp:42:6:virtual void Screen2View::setScreen(bool)	16	static

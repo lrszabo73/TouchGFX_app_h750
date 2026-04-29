@@ -11,6 +11,10 @@ Screen4ViewBase::Screen4ViewBase()
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
+    box1.setPosition(0, 0, 800, 480);
+    box1.setColor(touchgfx::Color::getColorFromRGB(39, 52, 87));
+    add(box1);
+
     image1.setXY(0, 5);
     image1.setBitmap(touchgfx::Bitmap(BITMAP_PLANT_VISION_BACKGROUND_800X480_ID));
     add(image1);
@@ -24,4 +28,12 @@ Screen4ViewBase::~Screen4ViewBase()
 void Screen4ViewBase::setupScreen()
 {
 
+}
+
+void Screen4ViewBase::setScreen2()
+{
+    //Interaction1
+    //When setScreen2 is called change screen to Screen2
+    //Go to Screen2 with screen transition towards East
+    application().gotoScreen2ScreenSlideTransitionEast();
 }

@@ -28,6 +28,7 @@ public:
     virtual ~Screen2Presenter(){}
     virtual void setVoltage( unsigned int Volt);
     virtual void setBar(bool state);
+    virtual void setScreen (bool state);
 private:
     Screen2Presenter();
 

@@ -32,6 +32,8 @@ static const uint16_t framebufferStride = 800;
 
 using namespace touchgfx;
 
+
+
 void TouchGFXHAL::initialize()
 {
     // Calling parent implementation of initialize().

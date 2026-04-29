@@ -69,13 +69,16 @@ C:\ST\STM32CubeIDE_1.12.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:424:8:constexpr touchgfx::Callback<FrontendApplicationBase>& touchgfx::Callback<FrontendApplicationBase>::operator=(touchgfx::Callback<FrontendApplicationBase>&&)	16	static
 ../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:42:6:void FrontendApplicationBase::gotoScreen1ScreenNoTransition()	48	static
 ../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:48:6:void FrontendApplicationBase::gotoScreen1ScreenNoTransitionImpl()	24	static
-../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:55:6:void FrontendApplicationBase::gotoScreen4ScreenSlideTransitionEast()	48	static
-../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:61:6:void FrontendApplicationBase::gotoScreen4ScreenSlideTransitionEastImpl()	24	static
+../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:55:6:void FrontendApplicationBase::gotoScreen2ScreenSlideTransitionEast()	48	static
+../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:61:6:void FrontendApplicationBase::gotoScreen2ScreenSlideTransitionEastImpl()	24	static
+../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:68:6:void FrontendApplicationBase::gotoScreen4ScreenSlideTransitionEast()	48	static
+../TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp:74:6:void FrontendApplicationBase::gotoScreen4ScreenSlideTransitionEastImpl()	24	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:175:7:constexpr touchgfx::GenericCallback<void>::GenericCallback()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:427:5:touchgfx::Callback<dest_type, void, void, void>::Callback() [with dest_type = FrontendApplicationBase]	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Callback.hpp:440:5:touchgfx::Callback<dest_type, void, void, void>::Callback(dest_type*, void (dest_type::*)()) [with dest_type = FrontendApplicationBase]	24	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/NoTransition.hpp:31:7:touchgfx::NoTransition::NoTransition()	16	static
 ../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:161:16:PresenterType* touchgfx::makeTransition(Screen**, Presenter**, MVPHeap&, Transition**, ModelType*) [with ScreenType = Screen1View; PresenterType = Screen1Presenter; TransType = NoTransition; ModelType = Model]	72	static
+../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:161:16:PresenterType* touchgfx::makeTransition(Screen**, Presenter**, MVPHeap&, Transition**, ModelType*) [with ScreenType = Screen2View; PresenterType = Screen2Presenter; TransType = SlideTransition<touchgfx::EAST>; ModelType = Model]	72	static
 ../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp:161:16:PresenterType* touchgfx::makeTransition(Screen**, Presenter**, MVPHeap&, Transition**, ModelType*) [with ScreenType = Screen4View; PresenterType = Screen4Presenter; TransType = SlideTransition<touchgfx::EAST>; ModelType = Model]	72	static
 ../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = touchgfx::NoTransition]	16	static
 ../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = Screen1View]	16	static
@@ -85,6 +88,9 @@ C:\ST\STM32CubeIDE_1.12.1\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.external
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/SnapshotWidget.hpp:33:7:touchgfx::SnapshotWidget::~SnapshotWidget()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/SnapshotWidget.hpp:33:7:virtual touchgfx::SnapshotWidget::~SnapshotWidget()	16	static
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/transitions/SlideTransition.hpp:47:5:touchgfx::SlideTransition<templateDirection>::SlideTransition(uint8_t) [with touchgfx::Direction templateDirection = touchgfx::EAST]	24	static
+../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = Screen2View]	16	static
+../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = Screen2Presenter]	16	static
+../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:50:10:void touchgfx::View<T>::bind(T&) [with T = Screen2Presenter]	16	static
 ../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = Screen4View]	16	static
 ../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp:135:8:T& touchgfx::AbstractPartition::at(uint16_t) [with T = Screen4Presenter]	16	static
 ../Middlewares/ST/touchgfx/framework/include/mvp/View.hpp:50:10:void touchgfx::View<T>::bind(T&) [with T = Screen4Presenter]	16	static

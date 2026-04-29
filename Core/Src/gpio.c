@@ -33,7 +33,6 @@
 /* USER CODE END 1 */
 
 /** Configure pins
-     PC13   ------> PWR_WKUP4
      PH0-OSC_IN (PH0)   ------> RCC_OSC_IN
      PH1-OSC_OUT (PH1)   ------> RCC_OSC_OUT
      PC7   ------> S_TIM3_CH2
@@ -88,11 +87,11 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOI, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : ENABLE_MICRO_Pin */
-  GPIO_InitStruct.Pin = ENABLE_MICRO_Pin;
+  /*Configure GPIO pins : SOFT_RST_Pin ENABLE_MICRO_Pin */
+  GPIO_InitStruct.Pin = SOFT_RST_Pin|ENABLE_MICRO_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(ENABLE_MICRO_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pin : RST_GNSS_Pin */
   GPIO_InitStruct.Pin = RST_GNSS_Pin;

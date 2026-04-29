@@ -27,4 +27,8 @@ void Screen2Presenter::setBar(bool state)
 	view.setBar(state);
 }
 
+void Screen2Presenter::setScreen(bool state)
+{
+	view.setScreen(state);
+}
 

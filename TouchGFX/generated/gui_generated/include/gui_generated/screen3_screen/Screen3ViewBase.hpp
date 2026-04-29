@@ -11,7 +11,6 @@
 #include <touchgfx/containers/clock/DigitalClock.hpp>
 #include <touchgfx/widgets/ButtonWithLabel.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
-#include <touchgfx/widgets/AnimatedImage.hpp>
 
 class Screen3ViewBase : public touchgfx::View<Screen3Presenter>
 {
@@ -34,7 +33,6 @@ protected:
     touchgfx::DigitalClock digitalClock1;
     touchgfx::ButtonWithLabel buttonWithLabel1;
     touchgfx::TextArea textArea1;
-    touchgfx::AnimatedImage animatedImage1;
 
 private:
 

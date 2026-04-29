@@ -17,6 +17,11 @@ public:
     virtual ~Screen4ViewBase();
     virtual void setupScreen();
 
+    /*
+     * Custom Actions
+     */
+    virtual void setScreen2();
+
 protected:
     FrontendApplication& application() {
         return *static_cast<FrontendApplication*>(touchgfx::Application::getInstance());
@@ -26,6 +31,7 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
+    touchgfx::Box box1;
     touchgfx::Image image1;
 
 private:

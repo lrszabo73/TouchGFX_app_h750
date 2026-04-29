@@ -16,7 +16,7 @@ Screen1ViewBase::Screen1ViewBase() :
     add(__background);
 
     box1.setPosition(0, 0, 800, 480);
-    box1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    box1.setColor(touchgfx::Color::getColorFromRGB(28, 40, 76));
     add(box1);
 
     circleProgress1.setXY(95, 165);

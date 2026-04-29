@@ -25,6 +25,8 @@ public:
      */
     virtual void deactivate();
 
+    virtual void setScreen (bool state);
+
     virtual ~Screen4Presenter() {}
 
 private:

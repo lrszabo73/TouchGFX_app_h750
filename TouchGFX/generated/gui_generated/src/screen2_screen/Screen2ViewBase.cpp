@@ -16,10 +16,10 @@ Screen2ViewBase::Screen2ViewBase()
     add(__background);
 
     box1.setPosition(0, 0, 800, 480);
-    box1.setColor(touchgfx::Color::getColorFromRGB(55, 83, 158));
+    box1.setColor(touchgfx::Color::getColorFromRGB(20, 25, 36));
     add(box1);
 
-    box2.setPosition(33, 28, 354, 431);
+    box2.setPosition(311, 28, 81, 80);
     box2.setColor(touchgfx::Color::getColorFromRGB(51, 189, 42));
     add(box2);
 
@@ -33,7 +33,7 @@ Screen2ViewBase::Screen2ViewBase()
     shape1.setShape(shape1Points);
     add(shape1);
 
-    shape2.setPosition(434, 33, 85, 83);
+    shape2.setPosition(432, 33, 85, 83);
     shape2.setOrigin(0.0f, 0.0f);
     shape2.setScale(1.0f, 1.0f);
     shape2.setAngle(0.0f);
@@ -52,13 +52,13 @@ Screen2ViewBase::Screen2ViewBase()
     circle1.setPainter(circle1Painter);
     add(circle1);
 
-    gauge1.setBackground(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_GAUGE_MEDIUM_BACKGROUNDS_DARK_PRECISION_ID));
-    gauge1.setPosition(474, 165, 240, 240);
-    gauge1.setCenter(120, 120);
-    gauge1.setStartEndAngle(-113, 112);
+    gauge1.setBackground(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_GAUGE_SMALL_BACKGROUNDS_DARK_PRECISION_ID));
+    gauge1.setPosition(474, 165, 184, 184);
+    gauge1.setCenter(92, 92);
+    gauge1.setStartEndAngle(-90, 90);
     gauge1.setRange(0, 50);
     gauge1.setValue(5);
-    gauge1.setNeedle(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_GAUGE_MEDIUM_NEEDLES_ROUGH_ID, 10, 65);
+    gauge1.setNeedle(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_GAUGE_SMALL_NEEDLES_ROUGH_ID, 8, 53);
     gauge1.setMovingNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
     gauge1.setSteadyNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
     add(gauge1);
@@ -66,7 +66,7 @@ Screen2ViewBase::Screen2ViewBase()
     textProgress1.setXY(114, 190);
     textProgress1.setProgressIndicatorPosition(12, 10, 150, 30);
     textProgress1.setRange(0, 100);
-    textProgress1.setColor(touchgfx::Color::getColorFromRGB(12, 27, 55));
+    textProgress1.setColor(touchgfx::Color::getColorFromRGB(151, 162, 184));
     textProgress1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_5B16));
     textProgress1.setBackground(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_TEXTPROGRESS_BACKGROUNDS_ROUNDED_LIGHT_ID));
     textProgress1.setValue(60);
@@ -91,4 +91,12 @@ Screen2ViewBase::~Screen2ViewBase()
 void Screen2ViewBase::setupScreen()
 {
 
+}
+
+void Screen2ViewBase::setScreen4()
+{
+    //Interaction1
+    //When setScreen4 is called change screen to Screen4
+    //Go to Screen4 with screen transition towards East
+    application().gotoScreen4ScreenSlideTransitionEast();
 }

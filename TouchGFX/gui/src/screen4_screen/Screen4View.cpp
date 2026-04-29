@@ -14,3 +14,8 @@ void Screen4View::tearDownScreen()
 {
     Screen4ViewBase::tearDownScreen();
 }
+
+void Screen4View::setScreen(bool state)
+{
+	if(state)setScreen2();
+}

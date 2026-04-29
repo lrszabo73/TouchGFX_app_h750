@@ -11,9 +11,9 @@
             "Width": 800,
             "Height": 480,
             "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
+              "Red": 28,
+              "Green": 40,
+              "Blue": 76
             }
           },
           {
@@ -74,18 +74,18 @@
             "Width": 800,
             "Height": 480,
             "Color": {
-              "Red": 55,
-              "Green": 83,
-              "Blue": 158
+              "Red": 20,
+              "Green": 25,
+              "Blue": 36
             }
           },
           {
             "Type": "Box",
             "Name": "box2",
-            "X": 33,
+            "X": 311,
             "Y": 28,
-            "Width": 354,
-            "Height": 431,
+            "Width": 81,
+            "Height": 80,
             "Color": {
               "Red": 51,
               "Green": 189,
@@ -126,7 +126,7 @@
           {
             "Type": "Shape",
             "Name": "shape2",
-            "X": 434,
+            "X": 432,
             "Y": 33,
             "Width": 85,
             "Height": 83,
@@ -178,21 +178,21 @@
             "Name": "gauge1",
             "X": 474,
             "Y": 165,
-            "Width": 240,
-            "Height": 240,
-            "Preset": "alternate_theme\\presets\\gauges\\medium\\dark_precision.json",
-            "FileNameBackground": "__generated\\alternate_theme_images_widgets_gauge_medium_backgrounds_dark_precision.png",
-            "RotationCenterX": 120.0,
-            "RotationCenterY": 120.0,
-            "StartAngle": -113.0,
-            "EndAngle": 112.0,
+            "Width": 184,
+            "Height": 184,
+            "Preset": "alternate_theme\\presets\\gauges\\small\\dark_precision.json",
+            "FileNameBackground": "__generated\\alternate_theme_images_widgets_gauge_small_backgrounds_dark_precision.png",
+            "RotationCenterX": 92.0,
+            "RotationCenterY": 92.0,
+            "StartAngle": -90.0,
+            "EndAngle": 90.0,
             "RangeMax": 50.0,
             "InitialValue": 5.0,
             "Easing": "Linear",
             "EasingOption": "In",
-            "FileNameNeedle": "__generated\\alternate_theme_images_widgets_gauge_medium_needles_rough.png",
-            "NeedleRotationCenterX": 10.0,
-            "NeedleRotationCenterY": 65.0,
+            "FileNameNeedle": "__generated\\alternate_theme_images_widgets_gauge_small_needles_rough.png",
+            "NeedleRotationCenterX": 8.0,
+            "NeedleRotationCenterY": 53.0,
             "NeedleMovingRenderingAlgorithm": "Bilinear Interpolation",
             "NeedleSteadyRenderingAlgorithm": "Bilinear Interpolation",
             "ArcColor": {
@@ -211,9 +211,9 @@
             "Height": 50,
             "TextId": "__SingleUse_5B16",
             "Color": {
-              "Red": 12,
-              "Green": 27,
-              "Blue": 55
+              "Red": 151,
+              "Green": 162,
+              "Blue": 184
             },
             "Preset": "alternate_theme\\presets\\textprogress\\rounded.json",
             "FileNameBackground": "__generated\\alternate_theme_images_widgets_textprogress_backgrounds_rounded_light.png",
@@ -242,7 +242,27 @@
             "ProgressInitialValue": 60
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerWhen",
+              "ActionCustomTypeName": "Call Screen2 setScreen4"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionSlide",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Screen4"
+            }
+          }
+        ],
+        "CustomActions": [
+          {
+            "Name": "setScreen4",
+            "Description": ""
+          }
+        ]
       },
       {
         "Name": "Screen3",
@@ -253,9 +273,9 @@
             "Width": 800,
             "Height": 480,
             "Color": {
-              "Red": 17,
-              "Green": 46,
-              "Blue": 16
+              "Red": 13,
+              "Green": 13,
+              "Blue": 31
             }
           },
           {
@@ -323,19 +343,6 @@
               "Blue": 255
             },
             "AutoSize": true
-          },
-          {
-            "Type": "AnimatedImage",
-            "Name": "animatedImage1",
-            "X": 415,
-            "Y": 84,
-            "Width": 356,
-            "Height": 356,
-            "FileNameFirst": "frame_0001.png",
-            "FileNameLast": "frame_0016.png",
-            "UpdateTicksInterval": 400,
-            "StartOnLoad": true,
-            "LoopEnabled": true
           }
         ],
         "Interactions": []
@@ -343,6 +350,17 @@
       {
         "Name": "Screen4",
         "Components": [
+          {
+            "Type": "Box",
+            "Name": "box1",
+            "Width": 800,
+            "Height": 480,
+            "Color": {
+              "Red": 39,
+              "Green": 52,
+              "Blue": 87
+            }
+          },
           {
             "Type": "Image",
             "Name": "image1",
@@ -352,7 +370,26 @@
             "RelativeFilename": "plant_vision_background_800x480.png"
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerWhen",
+              "ActionCustomTypeName": "Call Screen4 setScreen2"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionSlide",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Screen2"
+            }
+          }
+        ],
+        "CustomActions": [
+          {
+            "Name": "setScreen2"
+          }
+        ]
       }
     ],
     "CustomContainerDefinitions": [],

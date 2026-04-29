@@ -1,4 +1,5 @@
+../Drivers/CMSIS/Include/core_cm7.h:2165:34:__NVIC_SystemReset	1
 ../Core/Src/freertos.c:103:6:MX_FREERTOS_Init	1
-../Core/Src/freertos.c:159:6:StartDefaultTask	1
-../Core/Src/freertos.c:183:6:StartTGFXTask	1
-../Core/Src/freertos.c:202:6:StartADCTask	1
+../Core/Src/freertos.c:159:6:StartDefaultTask	2
+../Core/Src/freertos.c:197:6:StartTGFXTask	1
+../Core/Src/freertos.c:216:6:StartADCTask	1

@@ -23,6 +23,9 @@ public:
     // Screen1
     void gotoScreen1ScreenNoTransition();
 
+    // Screen2
+    void gotoScreen2ScreenSlideTransitionEast();
+
     // Screen4
     void gotoScreen4ScreenSlideTransitionEast();
 
@@ -33,6 +36,9 @@ protected:
 
     // Screen1
     void gotoScreen1ScreenNoTransitionImpl();
+
+    // Screen2
+    void gotoScreen2ScreenSlideTransitionEastImpl();
 
     // Screen4
     void gotoScreen4ScreenSlideTransitionEastImpl();
