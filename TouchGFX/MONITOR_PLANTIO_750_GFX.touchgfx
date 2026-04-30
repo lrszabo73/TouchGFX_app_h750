@@ -11,9 +11,9 @@
             "Width": 800,
             "Height": 480,
             "Color": {
-              "Red": 28,
-              "Green": 40,
-              "Blue": 76
+              "Red": 54,
+              "Green": 74,
+              "Blue": 135
             }
           },
           {
@@ -74,16 +74,16 @@
             "Width": 800,
             "Height": 480,
             "Color": {
-              "Red": 20,
-              "Green": 25,
-              "Blue": 36
+              "Red": 38,
+              "Green": 55,
+              "Blue": 92
             }
           },
           {
             "Type": "Box",
             "Name": "box2",
-            "X": 311,
-            "Y": 28,
+            "X": 303,
+            "Y": 34,
             "Width": 81,
             "Height": 80,
             "Color": {
@@ -240,6 +240,158 @@
             "IndicatorPositionHeight": 10,
             "ProgressRangeMax": 100,
             "ProgressInitialValue": 60
+          },
+          {
+            "Type": "Box",
+            "Name": "box3",
+            "X": 12,
+            "Y": 363,
+            "Width": 450,
+            "Height": 89,
+            "Color": {
+              "Red": 5,
+              "Green": 67,
+              "Blue": 240
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "text_tx1",
+            "X": 51,
+            "Y": 409,
+            "Width": 80,
+            "Height": 24,
+            "TextId": "__SingleUse_G3FM",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 245,
+              "Green": 240,
+              "Blue": 240
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_Q4WU",
+              "UseBuffer": true,
+              "BufferSize": 6
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "text_tx2",
+            "X": 257,
+            "Y": 409,
+            "Width": 80,
+            "Height": 24,
+            "TextId": "__SingleUse_6HTA",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 245,
+              "Green": 240,
+              "Blue": 240
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_PUNN",
+              "UseBuffer": true,
+              "BufferSize": 6
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "text_ty1",
+            "X": 156,
+            "Y": 409,
+            "Width": 80,
+            "Height": 24,
+            "TextId": "__SingleUse_CZOC",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 245,
+              "Green": 240,
+              "Blue": 240
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_WE87",
+              "UseBuffer": true,
+              "BufferSize": 6
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "text_ty2",
+            "X": 360,
+            "Y": 409,
+            "Width": 80,
+            "Height": 24,
+            "TextId": "__SingleUse_34RV",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 245,
+              "Green": 240,
+              "Blue": 240
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_49WQ",
+              "UseBuffer": true,
+              "BufferSize": 6
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1_2",
+            "X": 272,
+            "Y": 376,
+            "Width": 34,
+            "Height": 24,
+            "TextId": "__SingleUse_MIQP",
+            "TextRotation": "0",
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1_2_1",
+            "X": 384,
+            "Y": 376,
+            "Width": 33,
+            "Height": 24,
+            "TextId": "__SingleUse_HM8A",
+            "TextRotation": "0",
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 74,
+            "Y": 376,
+            "Width": 34,
+            "Height": 24,
+            "TextId": "__SingleUse_HELM",
+            "TextRotation": "0",
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1_1",
+            "X": 180,
+            "Y": 376,
+            "Width": 33,
+            "Height": 24,
+            "TextId": "__SingleUse_DTSA",
+            "TextRotation": "0",
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea2",
+            "X": 91,
+            "Y": 37,
+            "Width": 16,
+            "Height": 24,
+            "TextId": "__SingleUse_ZLIE",
+            "TextRotation": "0",
+            "AutoSize": true
           }
         ],
         "Interactions": [

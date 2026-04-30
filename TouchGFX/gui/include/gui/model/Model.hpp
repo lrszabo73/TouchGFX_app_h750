@@ -23,6 +23,9 @@ protected:
     bool Button_State_sw6;
     bool Button_State_sw7;
     unsigned int Voltage_in;
+    bool Touch_pressed;
+    long Touch_x[2];
+    long Touch_y[2];
 
 };
 

@@ -13,6 +13,45 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_ZLIE" Alignment="Left" TypographyId="Mediumbold">
+        <Translation Language="GB"></Translation>
+      </Text>
+      <Text Id="__SingleUse_HM8A" Alignment="Left" TypographyId="Mediumbold">
+        <Translation Language="GB">Y2</Translation>
+      </Text>
+      <Text Id="__SingleUse_MIQP" Alignment="Left" TypographyId="Mediumbold">
+        <Translation Language="GB">X2</Translation>
+      </Text>
+      <Text Id="__SingleUse_DTSA" Alignment="Left" TypographyId="Mediumbold">
+        <Translation Language="GB">Y1</Translation>
+      </Text>
+      <Text Id="__SingleUse_HELM" Alignment="Left" TypographyId="Mediumbold">
+        <Translation Language="GB">X1</Translation>
+      </Text>
+      <Text Id="__SingleUse_49WQ" Alignment="Left" TypographyId="Mediumbold">
+        <Translation Language="GB">99999</Translation>
+      </Text>
+      <Text Id="__SingleUse_34RV" Alignment="Left" TypographyId="Mediumbold">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_WE87" Alignment="Left" TypographyId="Mediumbold">
+        <Translation Language="GB">99999</Translation>
+      </Text>
+      <Text Id="__SingleUse_Q4WU" Alignment="Left" TypographyId="Mediumbold">
+        <Translation Language="GB">99999</Translation>
+      </Text>
+      <Text Id="__SingleUse_PUNN" Alignment="Left" TypographyId="Mediumbold">
+        <Translation Language="GB">99999</Translation>
+      </Text>
+      <Text Id="__SingleUse_CZOC" Alignment="Left" TypographyId="Mediumbold">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_6HTA" Alignment="Left" TypographyId="Mediumbold">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_G3FM" Alignment="Left" TypographyId="Mediumbold">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_GH6S" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">4 km/h</Translation>
       </Text>
@@ -28,8 +67,9 @@
     </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WidgetWildcardCharacters="0123456789. :APM" />
+    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WidgetWildcardCharacters="0123456789. :APM" WildcardCharacterRanges="0,9" />
     <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Mediumbold" Font="verdanab.ttf" Size="23" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="*" WildcardCharacters="0123456789-+,." WildcardCharacterRanges="0,9" />
   </Typographies>
 </TextDatabase>

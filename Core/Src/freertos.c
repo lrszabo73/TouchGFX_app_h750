@@ -28,6 +28,7 @@
 /* USER CODE BEGIN Includes */
 #include "app_touchgfx.h"
 #include "keyboard.h"
+#include "touch.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -63,7 +64,7 @@ const osThreadAttr_t defaultTask_attributes = {
 osThreadId_t myTouchGFXHandle;
 const osThreadAttr_t myTouchGFX_attributes = {
   .name = "myTouchGFX",
-  .stack_size = 8192 * 4,
+  .stack_size = 10000 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for adcTask */
@@ -72,6 +73,13 @@ const osThreadAttr_t adcTask_attributes = {
   .name = "adcTask",
   .stack_size = 512 * 4,
   .priority = (osPriority_t) osPriorityBelowNormal,
+};
+/* Definitions for tsTask */
+osThreadId_t tsTaskHandle;
+const osThreadAttr_t tsTask_attributes = {
+  .name = "tsTask",
+  .stack_size = 1000 * 4,
+  .priority = (osPriority_t) osPriorityLow,
 };
 /* Definitions for adcQueue */
 osMessageQueueId_t adcQueueHandle;
@@ -83,6 +91,11 @@ osMessageQueueId_t butQueueHandle;
 const osMessageQueueAttr_t butQueue_attributes = {
   .name = "butQueue"
 };
+/* Definitions for ts_Touch */
+osMessageQueueId_t ts_TouchHandle;
+const osMessageQueueAttr_t ts_Touch_attributes = {
+  .name = "ts_Touch"
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -92,6 +105,7 @@ const osMessageQueueAttr_t butQueue_attributes = {
 void StartDefaultTask(void *argument);
 void StartTGFXTask(void *argument);
 void StartADCTask(void *argument);
+void StartTS(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -119,14 +133,18 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the queue(s) */
   /* creation of adcQueue */
-  adcQueueHandle = osMessageQueueNew (16, sizeof(uint16_t), &adcQueue_attributes);
+  adcQueueHandle = osMessageQueueNew (4, sizeof(uint16_t), &adcQueue_attributes);
 
   /* creation of butQueue */
-  butQueueHandle = osMessageQueueNew (8, sizeof(uint8_t), &butQueue_attributes);
+  //butQueueHandle = osMessageQueueNew (8, sizeof(uint8_t), &butQueue_attributes);
+
+  /* creation of ts_Touch */
+  //ts_TouchHandle = osMessageQueueNew (12, sizeof(uint16_t), &ts_Touch_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   butQueueHandle = osMessageQueueNew (8, sizeof(Msg_Button_State), &butQueue_attributes);
+  ts_TouchHandle = osMessageQueueNew (12, sizeof(TS_StateTypeDef), &ts_Touch_attributes);
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
@@ -138,6 +156,9 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of adcTask */
   adcTaskHandle = osThreadNew(StartADCTask, NULL, &adcTask_attributes);
+
+  /* creation of tsTask */
+  tsTaskHandle = osThreadNew(StartTS, NULL, &tsTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -201,7 +222,7 @@ void StartTGFXTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(10);
+    osDelay(50);
   }
   /* USER CODE END StartTGFXTask */
 }
@@ -229,9 +250,33 @@ void StartADCTask(void *argument)
 	  // Voltage_in = adcValue*33/4095;
 	  Voltage_in = adcValue*33/4095;
 	  osMessageQueuePut(adcQueueHandle, &Voltage_in ,0 , 0);
-	  osDelay(10);
+	  osDelay(100);
   }
   /* USER CODE END StartADCTask */
+}
+
+/* USER CODE BEGIN Header_StartTS */
+/**
+* @brief Function implementing the tsTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartTS */
+void StartTS(void *argument)
+{
+  /* USER CODE BEGIN StartTS */
+	TS_StateTypeDef msg_ts;
+  /* Infinite loop */
+  for(;;)
+  {
+	  BSP_TS_GetState(&msg_ts);
+	  if(msg_ts.touchDetected)
+	   {
+		  osMessageQueuePut(ts_TouchHandle,&msg_ts, 0, 0);
+	   }
+	  osDelay(100);
+  }
+  /* USER CODE END StartTS */
 }
 
 /* Private application code --------------------------------------------------*/

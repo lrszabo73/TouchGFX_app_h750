@@ -32,3 +32,8 @@ void Screen2Presenter::setScreen(bool state)
 	view.setScreen(state);
 }
 
+
+void Screen2Presenter::showCursor(long *touch_x,long *touch_y)
+{
+	view.showCursor(touch_x,touch_y);
+}

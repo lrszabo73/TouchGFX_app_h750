@@ -63,6 +63,7 @@ public:
      * @return True if a touch has been detected, otherwise false.
      */
     virtual bool sampleTouch(int32_t& x, int32_t& y);
+
 };
 
 #endif // STM32TOUCHCONTROLLER_HPP

@@ -11,17 +11,12 @@
 /*********************
  *      INCLUDES
  *********************/
-#if defined(LV_LVGL_H_INCLUDE_SIMPLE)
-#include "lvgl.h"
-#else
-#include "lvgl/lvgl.h"
-#endif
-
+#include "main.h"
 /*********************
  *      DEFINES
  *********************/
 #define TS_MAX_NB_TOUCH                 ((uint32_t)2)
-
+#define TS_DEV_ADD		                ((uint8_t)0x70)
 #define TS_NO_IRQ_PENDING               ((uint8_t) 0)
 #define TS_IRQ_PENDING                  ((uint8_t) 1)
 
@@ -43,8 +38,8 @@
 typedef struct
 {
   uint8_t  touchDetected;                /*!< Total number of active touches detected at last scan */
-  uint16_t touchX[TS_MAX_NB_TOUCH];      /*!< Touch X[0], X[1] coordinates on 12 bits */
-  uint16_t touchY[TS_MAX_NB_TOUCH];      /*!< Touch Y[0], Y[1] coordinates on 12 bits */
+  int16_t touchX[TS_MAX_NB_TOUCH];      /*!< Touch X[0], X[1] coordinates on 12 bits */
+  int16_t touchY[TS_MAX_NB_TOUCH];      /*!< Touch Y[0], Y[1] coordinates on 12 bits */
 
 #if (TS_MULTI_TOUCH_SUPPORTED == 1)
   uint8_t  touchWeight[TS_MAX_NB_TOUCH]; /*!< Touch_Weight[0], Touch_Weight[1] : weight property of touches */
@@ -114,7 +109,6 @@ extern char * ts_gesture_id_string_tab[GEST_ID_NB_MAX];
 /**********************
  * GLOBAL PROTOTYPES
  **********************/
-void lv_port_indev_init(void);
 uint8_t BSP_TS_Init(uint16_t ts_SizeX, uint16_t ts_SizeY);
 uint8_t BSP_TS_InitEx(uint16_t ts_SizeX, uint16_t ts_SizeY, uint8_t  orientation);
 uint8_t BSP_TS_GetState(TS_StateTypeDef *TS_State);

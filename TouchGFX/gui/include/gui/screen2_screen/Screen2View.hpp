@@ -8,6 +8,7 @@ class Screen2View : public Screen2ViewBase
 {
 public:
     uint8_t percentage = 0;
+    char *coordinate;
     Screen2View();
     virtual ~Screen2View() {}
     virtual void setupScreen();
@@ -15,6 +16,7 @@ public:
     virtual void setVoltage(unsigned int Voltage);
     virtual void setBar(bool state);
     virtual void setScreen (bool state);
+    virtual void showCursor(long *touch_x,long *touch_y );
 protected:
 };
 

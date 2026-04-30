@@ -9,6 +9,7 @@
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:17:18:virtual void ModelListener::setVoltage(unsigned int)	16	static
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:18:18:virtual void ModelListener::setBar(bool)	16	static
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:19:18:virtual void ModelListener::setScreen(bool)	16	static
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:20:18:virtual void ModelListener::showCursor(long int*, long int*)	24	static
 ../TouchGFX/gui/include/gui/screen4_screen/Screen4Presenter.hpp:30:13:Screen4Presenter::~Screen4Presenter()	16	static
 ../TouchGFX/gui/include/gui/screen4_screen/Screen4Presenter.hpp:30:13:virtual Screen4Presenter::~Screen4Presenter()	16	static
 ../TouchGFX/gui/src/screen4_screen/Screen4Presenter.cpp:4:1:Screen4Presenter::Screen4Presenter(Screen4View&)	16	static

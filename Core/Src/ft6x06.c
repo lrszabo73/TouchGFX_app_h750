@@ -73,11 +73,9 @@ TS_DrvTypeDef ft6x06_ts_drv =
   ft6x06_Init,
   ft6x06_ReadID,
   ft6x06_Reset,
-
   ft6x06_TS_Start,
   ft6x06_TS_DetectTouch,
   ft6x06_TS_GetXY,
-
   ft6x06_TS_EnableIT,
   ft6x06_TS_ClearIT,
   ft6x06_TS_ITStatus,
@@ -535,15 +533,23 @@ uint16_t TS_IO_ReadMultiple(uint8_t Addr, uint8_t Reg, uint8_t *Buffer, uint16_t
   // The implementation uses a lower-level HAL function to manage the I2C communication.
   // The '1' in the fourth argument typically indicates the memory address size (8-bit in this case).
   // The '1000' indicates a timeout value in milliseconds.
-  return (HAL_I2C_Mem_Read(&hi2c1, Addr, Reg, 1, Buffer, Length, 1000));
+  return (HAL_I2C_Mem_Read(&hi2c1, Addr, Reg, 1, Buffer, Length, 100));
 }
 
 /**
  *
  */
-void TS_IO_Delay(uint32_t Delay) {
-    HAL_Delay(Delay); // Usually relies on the HAL library delay function
+void TS_IO_Delay(uint32_t Delay)
+ {
+	Delay=Delay*10000;
+    uint32_t counter_delay=0;
+	while(++counter_delay<Delay)
+	 {
+		__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();
+		__NOP();__NOP();__NOP();__NOP();__NOP();__NOP();
+	 }
 }
+
 
 /**
   * @}

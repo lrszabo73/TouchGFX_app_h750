@@ -14,6 +14,8 @@
 #include <touchgfx/widgets/Gauge.hpp>
 #include <touchgfx/containers/progress_indicators/TextProgress.hpp>
 #include <touchgfx/containers/progress_indicators/ImageProgress.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/widgets/TextArea.hpp>
 
 class Screen2ViewBase : public touchgfx::View<Screen2Presenter>
 {
@@ -47,6 +49,28 @@ protected:
     touchgfx::Gauge gauge1;
     touchgfx::TextProgress textProgress1;
     touchgfx::ImageProgress imageProgress1;
+    touchgfx::Box box3;
+    touchgfx::TextAreaWithOneWildcard text_tx1;
+    touchgfx::TextAreaWithOneWildcard text_tx2;
+    touchgfx::TextAreaWithOneWildcard text_ty1;
+    touchgfx::TextAreaWithOneWildcard text_ty2;
+    touchgfx::TextArea textArea1_2;
+    touchgfx::TextArea textArea1_2_1;
+    touchgfx::TextArea textArea1;
+    touchgfx::TextArea textArea1_1;
+    touchgfx::TextArea textArea2;
+
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t TEXT_TX1_SIZE = 6;
+    touchgfx::Unicode::UnicodeChar text_tx1Buffer[TEXT_TX1_SIZE];
+    static const uint16_t TEXT_TX2_SIZE = 6;
+    touchgfx::Unicode::UnicodeChar text_tx2Buffer[TEXT_TX2_SIZE];
+    static const uint16_t TEXT_TY1_SIZE = 6;
+    touchgfx::Unicode::UnicodeChar text_ty1Buffer[TEXT_TY1_SIZE];
+    static const uint16_t TEXT_TY2_SIZE = 6;
+    touchgfx::Unicode::UnicodeChar text_ty2Buffer[TEXT_TY2_SIZE];
 
 private:
 

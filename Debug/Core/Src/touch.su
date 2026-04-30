@@ -1,0 +1,8 @@
+../Core/Src/touch.c:115:13:touchpad_init	8	static
+../Core/Src/touch.c:124:16:touchpad_is_pressed	24	static
+../Core/Src/touch.c:134:13:touchpad_get_xy	32	static
+../Core/Src/touch.c:150:9:BSP_TS_Init	16	static
+../Core/Src/touch.c:164:9:BSP_TS_InitEx	24	static
+../Core/Src/touch.c:220:9:BSP_TS_ITConfig	16	static
+../Core/Src/touch.c:245:9:BSP_TS_GetState	48	static
+../Core/Src/touch.c:429:13:BSP_TS_INT_MspInit	32	static

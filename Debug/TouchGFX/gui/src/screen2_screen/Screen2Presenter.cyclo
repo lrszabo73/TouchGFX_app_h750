@@ -9,6 +9,7 @@
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:17:18:virtual void ModelListener::setVoltage(unsigned int)	1
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:18:18:virtual void ModelListener::setBar(bool)	1
 ../TouchGFX/gui/include/gui/model/ModelListener.hpp:19:18:virtual void ModelListener::setScreen(bool)	1
+../TouchGFX/gui/include/gui/model/ModelListener.hpp:20:18:virtual void ModelListener::showCursor(long int*, long int*)	1
 ../TouchGFX/gui/include/gui/screen2_screen/Screen2Presenter.hpp:28:13:Screen2Presenter::~Screen2Presenter()	1
 ../TouchGFX/gui/include/gui/screen2_screen/Screen2Presenter.hpp:28:13:virtual Screen2Presenter::~Screen2Presenter()	1
 ../TouchGFX/gui/src/screen2_screen/Screen2Presenter.cpp:4:1:Screen2Presenter::Screen2Presenter(Screen2View&)	1
@@ -17,3 +18,4 @@
 ../TouchGFX/gui/src/screen2_screen/Screen2Presenter.cpp:20:6:virtual void Screen2Presenter::setVoltage(unsigned int)	1
 ../TouchGFX/gui/src/screen2_screen/Screen2Presenter.cpp:25:6:virtual void Screen2Presenter::setBar(bool)	1
 ../TouchGFX/gui/src/screen2_screen/Screen2Presenter.cpp:30:6:virtual void Screen2Presenter::setScreen(bool)	1
+../TouchGFX/gui/src/screen2_screen/Screen2Presenter.cpp:36:6:virtual void Screen2Presenter::showCursor(long int*, long int*)	1

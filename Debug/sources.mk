@@ -62,6 +62,7 @@ TouchGFX/build/MINGW32_NT-6.2/gui/src/model \
 TouchGFX/build/MINGW32_NT-6.2/gui/src/screen1_screen \
 TouchGFX/build/MINGW32_NT-6.2/gui/src/screen2_screen \
 TouchGFX/build/MINGW32_NT-6.2/gui/src/screen3_screen \
+TouchGFX/build/MINGW32_NT-6.2/gui/src/screen4_screen \
 TouchGFX/build/MINGW32_NT-6.2/simulator \
 TouchGFX/build/MINGW32_NT-6.2/touchgfx/framework/source/platform/driver/touch \
 TouchGFX/build/MINGW32_NT-6.2/touchgfx/framework/source/platform/hal/simulator/sdl2 \

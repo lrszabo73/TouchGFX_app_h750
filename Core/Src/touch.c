@@ -42,7 +42,6 @@
  *      INCLUDES
  *********************/
 #include "touch.h"
-#include "lvgl/lvgl.h"
 #include "ft6x06.h"
 #include "main.h"
 
@@ -67,17 +66,15 @@
  **********************/
 
 static void touchpad_init(void);
-static void touchpad_read(lv_indev_t * indev, lv_indev_data_t * data);
-static bool touchpad_is_pressed(void);
+static uint8_t touchpad_is_pressed(void);
 static void touchpad_get_xy(int32_t * x, int32_t * y);
 
 /**********************
  *  STATIC VARIABLES
  **********************/
-lv_indev_t * indev_touchpad;
 
 static TS_DrvTypeDef *tsDriver;
-static uint8_t  I2C_Address = 0;
+static uint8_t  I2C_Address = TS_DEV_ADD;
 static uint8_t  tsOrientation = TS_SWAP_NONE;
 
 /* Table for touchscreen event information display on LCD : table indexed on enum @ref TS_TouchEventTypeDef information */
@@ -104,34 +101,7 @@ char * ts_gesture_id_string_tab[GEST_ID_NB_MAX] = { "None",
  *   GLOBAL FUNCTIONS
  **********************/
 
-void lv_port_indev_init(void)
-{
-    /**
-     * Here you will find example implementation of input devices supported by LittelvGL:
-     *  - Touchpad
-     *  - Mouse (with cursor support)
-     *  - Keypad (supports GUI usage only with key)
-     *  - Encoder (supports GUI usage only with: left, right, push)
-     *  - Button (external buttons to press points on the screen)
-     *
-     *  The `..._read()` function are only examples.
-     *  You should shape them according to your hardware
-     */
 
-    /*------------------
-     * Touchpad
-     * -----------------*/
-
-    /*Initialize your touchpad if you have*/
-    touchpad_init();
-
-    /*Register a touchpad input device*/
-    indev_touchpad = lv_indev_create();
-    lv_indev_set_type(indev_touchpad, LV_INDEV_TYPE_POINTER);
-    lv_indev_set_read_cb(indev_touchpad, touchpad_read);
-
-
-}
 
 /**********************
  *   STATIC FUNCTIONS
@@ -148,28 +118,10 @@ static void touchpad_init(void)
 	BSP_TS_Init(800,480);
 }
 
-/*Will be called by the library to read the touchpad*/
-static void touchpad_read(lv_indev_t * indev_drv, lv_indev_data_t * data)
-{
-    static int32_t last_x = 0;
-    static int32_t last_y = 0;
 
-    /*Save the pressed coordinates and the state*/
-    if(touchpad_is_pressed()) {
-        touchpad_get_xy(&last_x, &last_y);
-        data->state = LV_INDEV_STATE_PRESSED;
-    }
-    else {
-        data->state = LV_INDEV_STATE_RELEASED;
-    }
-
-    /*Set the last pressed coordinates*/
-    data->point.x = last_x;
-    data->point.y = last_y;
-}
 
 /*Return true is the touchpad is pressed*/
-static bool touchpad_is_pressed(void)
+static uint8_t touchpad_is_pressed(void)
 {
     /*Your code comes here*/
 	TS_StateTypeDef touch_info;
@@ -222,7 +174,7 @@ uint8_t BSP_TS_InitEx(uint16_t ts_SizeX, uint16_t ts_SizeY, uint8_t  orientation
 
   /* Scan FT6x36 TouchScreen IC controller ID register by I2C Read */
   /* Verify this is a FT6x36, otherwise this is an error case      */
-  if(ft6x06_ts_drv.ReadID(TS_I2C_ADDRESS) == FT6x36_ID_VALUE)
+  if(ft6x06_ts_drv.ReadID(TS_I2C_ADDRESS) >= 0x11)
   {
     /* Found FT6x36 : Initialize the TS driver structure */
     tsDriver = &ft6x06_ts_drv;
@@ -306,9 +258,10 @@ uint8_t BSP_TS_GetState(TS_StateTypeDef *TS_State)
   uint32_t area = 0;
   uint32_t event = 0;
 #endif /* TS_MULTI_TOUCH_SUPPORTED == 1 */
-
+  tsDriver = &ft6x06_ts_drv;
   /* Check and update the number of touches active detected */
   TS_State->touchDetected = tsDriver->DetectTouch(I2C_Address);
+  //TS_State->touchDetected = tsDriver->ft6x06_TS_DetectTouch(I2C_Address);
   if(TS_State->touchDetected)
   {
     for(index=0; index < TS_State->touchDetected; index++)

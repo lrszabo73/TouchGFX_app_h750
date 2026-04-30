@@ -51,7 +51,7 @@ extern "C" {
 
 /* Set Auto-calibration as non supported */  
 #ifndef TS_AUTO_CALIBRATION_SUPPORTED
-  #define TS_AUTO_CALIBRATION_SUPPORTED 0
+  #define TS_AUTO_CALIBRATION_SUPPORTED 1
 #endif
   
 /* Includes ------------------------------------------------------------------*/
@@ -266,9 +266,10 @@ typedef struct
 
   /* FT6206 Chip identification register */
 #define FT6206_CHIP_ID_REG              0xA8
-
+#define FT5426_REG_CHIP_ID				0xA3
   /*  Possible values of FT6206_CHIP_ID_REG */
 #define FT6206_ID_VALUE                 0x11
+
 #define FT6x36_ID_VALUE                 0xCD
 
   /* Release code version */

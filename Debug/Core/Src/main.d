@@ -64,7 +64,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Inc/dac.h ../Core/Inc/dma2d.h ../Core/Inc/fdcan.h \
  ../Core/Inc/i2c.h ../Core/Inc/ltdc.h ../Core/Inc/spi.h ../Core/Inc/tim.h \
  ../Core/Inc/usart.h ../Core/Inc/usb_otg.h ../Core/Inc/gpio.h \
- ../Core/Inc/fmc.h ../TouchGFX/App/app_touchgfx.h
+ ../Core/Inc/fmc.h ../TouchGFX/App/app_touchgfx.h ../Core/Inc/touch.h
 ../Core/Inc/main.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -143,3 +143,4 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/gpio.h:
 ../Core/Inc/fmc.h:
 ../TouchGFX/App/app_touchgfx.h:
+../Core/Inc/touch.h:
