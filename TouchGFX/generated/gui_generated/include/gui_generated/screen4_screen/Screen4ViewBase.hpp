@@ -9,6 +9,7 @@
 #include <gui/screen4_screen/Screen4Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/Image.hpp>
+#include <touchgfx/widgets/ButtonWithLabel.hpp>
 
 class Screen4ViewBase : public touchgfx::View<Screen4Presenter>
 {
@@ -20,7 +21,11 @@ public:
     /*
      * Custom Actions
      */
-    virtual void setScreen2();
+    virtual void setScreen2()
+    {
+        // Override and implement this function in Screen1
+    }
+    
 
 protected:
     FrontendApplication& application() {
@@ -33,8 +38,19 @@ protected:
     touchgfx::Box __background;
     touchgfx::Box box1;
     touchgfx::Image image1;
+    touchgfx::ButtonWithLabel buttonWithLabel1;
 
 private:
+
+    /*
+     * Callback Declarations
+     */
+    touchgfx::Callback<Screen4ViewBase, const touchgfx::AbstractButton&> buttonCallback;
+
+    /*
+     * Callback Handler Declarations
+     */
+    void buttonCallbackHandler(const touchgfx::AbstractButton& src);
 
 };
 

@@ -54,9 +54,9 @@ void Screen1ViewBase::handleTickEvent()
     if(frameCountInteraction1Interval == TICK_INTERACTION1_INTERVAL)
     {
         //Interaction1
-        //When every N tick change screen to Screen4
-        //Go to Screen4 with screen transition towards East
-        application().gotoScreen4ScreenSlideTransitionEast();
+        //When every N tick change screen to Screen5
+        //Go to Screen5 with screen transition towards East
+        application().gotoScreen5ScreenSlideTransitionEast();
         frameCountInteraction1Interval = 0;
     }
 }

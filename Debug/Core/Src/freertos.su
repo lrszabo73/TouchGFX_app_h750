@@ -1,6 +1,7 @@
 ../Drivers/CMSIS/Include/core_cm7.h:2165:34:__NVIC_SystemReset	4	static,ignoring_inline_asm
-../Core/Src/freertos.c:117:6:MX_FREERTOS_Init	8	static
-../Core/Src/freertos.c:180:6:StartDefaultTask	24	static
-../Core/Src/freertos.c:218:6:StartTGFXTask	16	static
-../Core/Src/freertos.c:237:6:StartADCTask	24	static
-../Core/Src/freertos.c:265:6:StartTS	32	static
+../Core/Src/freertos.c:130:6:MX_FREERTOS_Init	8	static
+../Core/Src/freertos.c:199:6:StartDefaultTask	24	static
+../Core/Src/freertos.c:237:6:StartTGFXTask	16	static
+../Core/Src/freertos.c:256:6:StartADCTask	24	static
+../Core/Src/freertos.c:284:6:StartTS	32	static
+../Core/Src/freertos.c:308:6:StartTask05	16	static

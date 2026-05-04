@@ -6,7 +6,8 @@
 #include <texts/TextKeysAndLanguages.hpp>
 #include <images/BitmapDatabase.hpp>
 
-Screen3ViewBase::Screen3ViewBase()
+Screen3ViewBase::Screen3ViewBase() :
+    buttonCallback(this, &Screen3ViewBase::buttonCallbackHandler)
 {
     __background.setPosition(0, 0, 800, 480);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -20,7 +21,7 @@ Screen3ViewBase::Screen3ViewBase()
     box2.setColor(touchgfx::Color::getColorFromRGB(37, 52, 74));
     add(box2);
 
-    digitalClock1.setPosition(671, 11, 100, 25);
+    digitalClock1.setPosition(649, 11, 122, 25);
     digitalClock1.setColor(touchgfx::Color::getColorFromRGB(250, 242, 242));
     digitalClock1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_3Q8T));
     digitalClock1.displayLeadingZeroForHourIndicator(true);
@@ -29,10 +30,11 @@ Screen3ViewBase::Screen3ViewBase()
     add(digitalClock1);
 
     buttonWithLabel1.setXY(0, 0);
-    buttonWithLabel1.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUNDED_NORMAL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUNDED_PRESSED_ID));
+    buttonWithLabel1.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUNDED_NORMAL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUNDED_ACTION_ID));
     buttonWithLabel1.setLabelText(touchgfx::TypedText(T___SINGLEUSE_8QRT));
     buttonWithLabel1.setLabelColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     buttonWithLabel1.setLabelColorPressed(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    buttonWithLabel1.setAction(buttonCallback);
     add(buttonWithLabel1);
 
     textArea1.setXY(574, 12);
@@ -40,6 +42,30 @@ Screen3ViewBase::Screen3ViewBase()
     textArea1.setLinespacing(0);
     textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_GH6S));
     add(textArea1);
+
+    textArea2.setXY(180, 199);
+    textArea2.setColor(touchgfx::Color::getColorFromRGB(232, 194, 23));
+    textArea2.setLinespacing(0);
+    Unicode::snprintf(textArea2Buffer, TEXTAREA2_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_S0AA).getText());
+    textArea2.setWildcard(textArea2Buffer);
+    textArea2.resizeToCurrentText();
+    textArea2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_GD08));
+    add(textArea2);
+
+    textArea3.setXY(610, 229);
+    textArea3.setColor(touchgfx::Color::getColorFromRGB(240, 189, 5));
+    textArea3.setLinespacing(0);
+    textArea3.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IT2Z));
+    add(textArea3);
+
+    textArea4.setXY(529, 11);
+    textArea4.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    textArea4.setLinespacing(0);
+    Unicode::snprintf(textArea4Buffer, TEXTAREA4_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_E09L).getText());
+    textArea4.setWildcard(textArea4Buffer);
+    textArea4.resizeToCurrentText();
+    textArea4.setTypedText(touchgfx::TypedText(T___SINGLEUSE_D41A));
+    add(textArea4);
 }
 
 Screen3ViewBase::~Screen3ViewBase()
@@ -50,4 +76,15 @@ Screen3ViewBase::~Screen3ViewBase()
 void Screen3ViewBase::setupScreen()
 {
 
+}
+
+void Screen3ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
+{
+    if (&src == &buttonWithLabel1)
+    {
+        //Interaction1
+        //When buttonWithLabel1 clicked change screen to Screen5
+        //Go to Screen5 with no screen transition
+        application().gotoScreen5ScreenNoTransition();
+    }
 }

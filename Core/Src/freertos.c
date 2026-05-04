@@ -79,7 +79,14 @@ osThreadId_t tsTaskHandle;
 const osThreadAttr_t tsTask_attributes = {
   .name = "tsTask",
   .stack_size = 1000 * 4,
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityNormal1,
+};
+/* Definitions for CanTask */
+osThreadId_t CanTaskHandle;
+const osThreadAttr_t CanTask_attributes = {
+  .name = "CanTask",
+  .stack_size = 512 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for adcQueue */
 osMessageQueueId_t adcQueueHandle;
@@ -96,6 +103,11 @@ osMessageQueueId_t ts_TouchHandle;
 const osMessageQueueAttr_t ts_Touch_attributes = {
   .name = "ts_Touch"
 };
+/* Definitions for canQueue */
+osMessageQueueId_t canQueueHandle;
+const osMessageQueueAttr_t canQueue_attributes = {
+  .name = "canQueue"
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -106,6 +118,7 @@ void StartDefaultTask(void *argument);
 void StartTGFXTask(void *argument);
 void StartADCTask(void *argument);
 void StartTS(void *argument);
+void StartTask05(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -136,10 +149,13 @@ void MX_FREERTOS_Init(void) {
   adcQueueHandle = osMessageQueueNew (4, sizeof(uint16_t), &adcQueue_attributes);
 
   /* creation of butQueue */
-  //butQueueHandle = osMessageQueueNew (8, sizeof(uint8_t), &butQueue_attributes);
+  butQueueHandle = osMessageQueueNew (8, sizeof(uint8_t), &butQueue_attributes);
 
   /* creation of ts_Touch */
-  //ts_TouchHandle = osMessageQueueNew (12, sizeof(uint16_t), &ts_Touch_attributes);
+  ts_TouchHandle = osMessageQueueNew (12, sizeof(uint16_t), &ts_Touch_attributes);
+
+  /* creation of canQueue */
+  canQueueHandle = osMessageQueueNew (64, sizeof(uint8_t), &canQueue_attributes);
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
@@ -159,6 +175,9 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of tsTask */
   tsTaskHandle = osThreadNew(StartTS, NULL, &tsTask_attributes);
+
+  /* creation of CanTask */
+  CanTaskHandle = osThreadNew(StartTask05, NULL, &CanTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -222,7 +241,7 @@ void StartTGFXTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(50);
+    osDelay(10);
   }
   /* USER CODE END StartTGFXTask */
 }
@@ -277,6 +296,24 @@ void StartTS(void *argument)
 	  osDelay(100);
   }
   /* USER CODE END StartTS */
+}
+
+/* USER CODE BEGIN Header_StartTask05 */
+/**
+* @brief Function implementing the CanTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartTask05 */
+void StartTask05(void *argument)
+{
+  /* USER CODE BEGIN StartTask05 */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END StartTask05 */
 }
 
 /* Private application code --------------------------------------------------*/

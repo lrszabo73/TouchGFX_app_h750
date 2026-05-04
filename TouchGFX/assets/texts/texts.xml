@@ -13,6 +13,36 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_E09L" Alignment="Left" TypographyId="Mediumbold">
+        <Translation Language="GB">0</Translation>
+      </Text>
+      <Text Id="__SingleUse_D41A" Alignment="Left" TypographyId="Mediumbold">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_S0AA" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">0000000</Translation>
+      </Text>
+      <Text Id="__SingleUse_IT2Z" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">mm</Translation>
+      </Text>
+      <Text Id="__SingleUse_GD08" Alignment="Left" TypographyId="VERYBIG">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_XNOB" Alignment="Center" TypographyId="Default">
+        <Translation Language="GB">HOME</Translation>
+      </Text>
+      <Text Id="__SingleUse_2UG2" Alignment="Center" TypographyId="Mediumbold">
+        <Translation Language="GB">Radar</Translation>
+      </Text>
+      <Text Id="__SingleUse_ZT7E" Alignment="Center" TypographyId="Mediumbold">
+        <Translation Language="GB">Image</Translation>
+      </Text>
+      <Text Id="__SingleUse_UQL2" Alignment="Center" TypographyId="Mediumbold">
+        <Translation Language="GB">Test1</Translation>
+      </Text>
+      <Text Id="__SingleUse_0O5X" Alignment="Center" TypographyId="Mediumbold">
+        <Translation Language="GB">Home</Translation>
+      </Text>
       <Text Id="__SingleUse_ZLIE" Alignment="Left" TypographyId="Mediumbold">
         <Translation Language="GB"></Translation>
       </Text>
@@ -53,12 +83,12 @@
         <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_GH6S" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">4 km/h</Translation>
+        <Translation Language="GB">km/h</Translation>
       </Text>
-      <Text Id="__SingleUse_8QRT" Alignment="Center" TypographyId="Default">
+      <Text Id="__SingleUse_8QRT" Alignment="Center" TypographyId="Mediumbold">
         <Translation Language="GB">Home</Translation>
       </Text>
-      <Text Id="__SingleUse_3Q8T" Alignment="Left" TypographyId="Default">
+      <Text Id="__SingleUse_3Q8T" Alignment="Left" TypographyId="Mediumbold">
         <Translation Language="GB">&lt;&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_5B16" Alignment="Center" TypographyId="Default">
@@ -67,9 +97,10 @@
     </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WidgetWildcardCharacters="0123456789. :APM" WildcardCharacterRanges="0,9" />
+    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WidgetWildcardCharacters="0123456789." WildcardCharacterRanges="0,9" />
     <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Mediumbold" Font="verdanab.ttf" Size="23" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="*" WildcardCharacters="0123456789-+,." WildcardCharacterRanges="0,9" />
+    <Typography Id="Mediumbold" Font="verdanab.ttf" Size="23" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="*" WildcardCharacters="0123456789-+,." WidgetWildcardCharacters="0123456789 :APM" WildcardCharacterRanges="0,9" />
+    <Typography Id="VERYBIG" Font="verdanab.ttf" Size="85" Bpp="4" IsVector="no" Direction="RTL" FallbackCharacter="-" WildcardCharacters="01234567890-+.," WildcardCharacterRanges="0-9" />
   </Typographies>
 </TextDatabase>

@@ -11,6 +11,7 @@
 #include <touchgfx/containers/clock/DigitalClock.hpp>
 #include <touchgfx/widgets/ButtonWithLabel.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 
 class Screen3ViewBase : public touchgfx::View<Screen3Presenter>
 {
@@ -33,8 +34,29 @@ protected:
     touchgfx::DigitalClock digitalClock1;
     touchgfx::ButtonWithLabel buttonWithLabel1;
     touchgfx::TextArea textArea1;
+    touchgfx::TextAreaWithOneWildcard textArea2;
+    touchgfx::TextArea textArea3;
+    touchgfx::TextAreaWithOneWildcard textArea4;
+
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t TEXTAREA2_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar textArea2Buffer[TEXTAREA2_SIZE];
+    static const uint16_t TEXTAREA4_SIZE = 3;
+    touchgfx::Unicode::UnicodeChar textArea4Buffer[TEXTAREA4_SIZE];
 
 private:
+
+    /*
+     * Callback Declarations
+     */
+    touchgfx::Callback<Screen3ViewBase, const touchgfx::AbstractButton&> buttonCallback;
+
+    /*
+     * Callback Handler Declarations
+     */
+    void buttonCallbackHandler(const touchgfx::AbstractButton& src);
 
 };
 

@@ -69,7 +69,6 @@ uint16_t* framebuffer = (uint16_t*)0xC0000000;  //16 bpp framebuffer
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-void PeriphCommonClock_Config(void);
 static void MPU_Config(void);
 void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
@@ -128,9 +127,6 @@ int main(void)
   /* Configure the system clock */
   SystemClock_Config();
 
-  /* Configure the peripherals common clocks */
-  PeriphCommonClock_Config();
-
   /* USER CODE BEGIN SysInit */
   //
   //Step 1: Configure a clock configuration enable command
@@ -161,15 +157,18 @@ int main(void)
   /* Call PreOsInit function */
   MX_TouchGFX_PreOSInit();
   /* USER CODE BEGIN 2 */
+  HAL_GPIO_WritePin(LCD_BL_GPIO_Port, LCD_BL_Pin, 0);
+  delay_us(50000); //5ms
   BSP_TS_Init(800,480);
   HAL_GPIO_WritePin(LCD_DISP_GPIO_Port,LCD_DISP_Pin, 0);
-  delay_nop();
+  delay_us(1000000); //100ms
   HAL_GPIO_WritePin(LCD_RST_GPIO_Port,LCD_RST_Pin, 0);
-  HAL_GPIO_WritePin(LCD_BL_GPIO_Port, LCD_BL_Pin, 1);
-  delay_us(2000000); //200ms
+  delay_us(2500000); //250ms
   HAL_GPIO_WritePin(LCD_RST_GPIO_Port,LCD_RST_Pin, 1);
-  delay_us(2000000); //200ms
+  delay_us(2500000); //250ms
   HAL_GPIO_WritePin(LCD_DISP_GPIO_Port,LCD_DISP_Pin, 1);
+  delay_us(5000000); //500ms
+  HAL_GPIO_WritePin(LCD_BL_GPIO_Port, LCD_BL_Pin, 1);
   HAL_I2C_Init(&hi2c1);
   /* USER CODE END 2 */
 
@@ -246,33 +245,6 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB4CLKDivider = RCC_APB4_DIV2;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
-  {
-    Error_Handler();
-  }
-}
-
-/**
-  * @brief Peripherals Common Clock Configuration
-  * @retval None
-  */
-void PeriphCommonClock_Config(void)
-{
-  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
-
-  /** Initializes the peripherals clock
-  */
-  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_I2C2|RCC_PERIPHCLK_I2C1
-                              |RCC_PERIPHCLK_LTDC;
-  PeriphClkInitStruct.PLL3.PLL3M = 2;
-  PeriphClkInitStruct.PLL3.PLL3N = 12;
-  PeriphClkInitStruct.PLL3.PLL3P = 2;
-  PeriphClkInitStruct.PLL3.PLL3Q = 2;
-  PeriphClkInitStruct.PLL3.PLL3R = 6;
-  PeriphClkInitStruct.PLL3.PLL3RGE = RCC_PLL3VCIRANGE_3;
-  PeriphClkInitStruct.PLL3.PLL3VCOSEL = RCC_PLL3VCOMEDIUM;
-  PeriphClkInitStruct.PLL3.PLL3FRACN = 0;
-  PeriphClkInitStruct.I2c123ClockSelection = RCC_I2C123CLKSOURCE_PLL3;
-  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {
     Error_Handler();
   }

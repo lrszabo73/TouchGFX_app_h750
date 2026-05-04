@@ -49,8 +49,8 @@ void Model::tick()
 			Touch_pressed = true;
 			Touch_x[0]=(long)msg_ts.touchX[0];
 			Touch_x[1]=(long)msg_ts.touchX[1];
-			Touch_y[0]=((long)msg_ts.touchY[0]+316);
-			Touch_y[1]=((long)msg_ts.touchY[1]+316);
+			Touch_y[0]=((long)msg_ts.touchY[0]+320);
+			Touch_y[1]=((long)msg_ts.touchY[1]+320);
 			modelListener->showCursor( Touch_x, Touch_y);
 		 }
 		else Touch_pressed = false;

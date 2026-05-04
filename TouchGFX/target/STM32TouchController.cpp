@@ -23,9 +23,14 @@
 /* USER CODE BEGIN STM32TouchController */
 
 #include <STM32TouchController.hpp>
+#include <cmsis_os2.h>
+#include <touch.h>
 
 #ifndef SIMULATOR
-
+extern "C"
+{
+	extern osMessageQueueId_t ts_TouchHandle;
+}
 #endif
 
 void STM32TouchController::init()
@@ -48,6 +53,17 @@ bool STM32TouchController::sampleTouch(int32_t& x, int32_t& y)
      * By default sampleTouch is called every tick, this can be adjusted by HAL::setTouchSampleRate(int8_t);
      *
      */
+	TS_StateTypeDef ts;
+
+	if(osMessageQueueGet(ts_TouchHandle,&ts, 0, 10)==osOK )
+	{
+		if(ts.touchDetected)
+		 {
+			y=(int32_t)ts.touchX[0];
+			x=(int32_t)(800 - (ts.touchY[0]+320));
+			return true;
+		 }
+	}
 	return false;
 }
 

@@ -59,7 +59,7 @@
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionSlide",
               "ScreenTransitionDirection": "East",
-              "ActionComponent": "Screen4"
+              "ActionComponent": "Screen5"
             }
           }
         ]
@@ -260,7 +260,7 @@
             "X": 51,
             "Y": 409,
             "Width": 80,
-            "Height": 24,
+            "Height": 28,
             "TextId": "__SingleUse_G3FM",
             "TextRotation": "0",
             "Color": {
@@ -281,7 +281,7 @@
             "X": 257,
             "Y": 409,
             "Width": 80,
-            "Height": 24,
+            "Height": 28,
             "TextId": "__SingleUse_6HTA",
             "TextRotation": "0",
             "Color": {
@@ -302,7 +302,7 @@
             "X": 156,
             "Y": 409,
             "Width": 80,
-            "Height": 24,
+            "Height": 28,
             "TextId": "__SingleUse_CZOC",
             "TextRotation": "0",
             "Color": {
@@ -323,7 +323,7 @@
             "X": 360,
             "Y": 409,
             "Width": 80,
-            "Height": 24,
+            "Height": 28,
             "TextId": "__SingleUse_34RV",
             "TextRotation": "0",
             "Color": {
@@ -344,7 +344,7 @@
             "X": 272,
             "Y": 376,
             "Width": 34,
-            "Height": 24,
+            "Height": 28,
             "TextId": "__SingleUse_MIQP",
             "TextRotation": "0",
             "AutoSize": true
@@ -355,7 +355,7 @@
             "X": 384,
             "Y": 376,
             "Width": 33,
-            "Height": 24,
+            "Height": 28,
             "TextId": "__SingleUse_HM8A",
             "TextRotation": "0",
             "AutoSize": true
@@ -366,7 +366,7 @@
             "X": 74,
             "Y": 376,
             "Width": 34,
-            "Height": 24,
+            "Height": 28,
             "TextId": "__SingleUse_HELM",
             "TextRotation": "0",
             "AutoSize": true
@@ -377,7 +377,7 @@
             "X": 180,
             "Y": 376,
             "Width": 33,
-            "Height": 24,
+            "Height": 28,
             "TextId": "__SingleUse_DTSA",
             "TextRotation": "0",
             "AutoSize": true
@@ -392,6 +392,26 @@
             "TextId": "__SingleUse_ZLIE",
             "TextRotation": "0",
             "AutoSize": true
+          },
+          {
+            "Type": "ButtonWithLabel",
+            "Name": "buttonWithLabel1",
+            "Width": 240,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_action.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_normal.png",
+            "TextId": "__SingleUse_0O5X",
+            "ReleasedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "PressedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "TextRotation": "0"
           }
         ],
         "Interactions": [
@@ -406,6 +426,19 @@
               "ScreenTransitionType": "ScreenTransitionSlide",
               "ScreenTransitionDirection": "East",
               "ActionComponent": "Screen4"
+            }
+          },
+          {
+            "InteractionName": "Interaction2",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "buttonWithLabel1"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionSlide",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Screen5"
             }
           }
         ],
@@ -444,9 +477,9 @@
           {
             "Type": "DigitalClock",
             "Name": "digitalClock1",
-            "X": 671,
+            "X": 649,
             "Y": 11,
-            "Width": 100,
+            "Width": 122,
             "Height": 25,
             "TextColor": {
               "Red": 250,
@@ -464,7 +497,7 @@
             "Name": "buttonWithLabel1",
             "Width": 240,
             "Height": 50,
-            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_pressed.png",
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_action.png",
             "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_normal.png",
             "TextId": "__SingleUse_8QRT",
             "ReleasedColor": {
@@ -477,16 +510,15 @@
               "Green": 255,
               "Blue": 255
             },
-            "TextRotation": "0",
-            "Preset": "alternate_theme\\presets\\button\\regular\\height_50\\medium_rounded_normal.json"
+            "TextRotation": "0"
           },
           {
             "Type": "TextArea",
             "Name": "textArea1",
             "X": 574,
             "Y": 12,
-            "Width": 73,
-            "Height": 23,
+            "Width": 53,
+            "Height": 24,
             "TextId": "__SingleUse_GH6S",
             "TextRotation": "0",
             "Color": {
@@ -495,9 +527,80 @@
               "Blue": 255
             },
             "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea2",
+            "X": 180,
+            "Y": 199,
+            "Width": 420,
+            "Height": 100,
+            "TextId": "__SingleUse_GD08",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 232,
+              "Green": 194,
+              "Blue": 23
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_S0AA",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea3",
+            "X": 610,
+            "Y": 229,
+            "Width": 78,
+            "Height": 41,
+            "TextId": "__SingleUse_IT2Z",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 240,
+              "Green": 189,
+              "Blue": 5
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea4",
+            "X": 529,
+            "Y": 11,
+            "Width": 16,
+            "Height": 28,
+            "TextId": "__SingleUse_D41A",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_E09L",
+              "UseBuffer": true,
+              "BufferSize": 3
+            }
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "buttonWithLabel1"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "Screen5"
+            }
+          }
+        ]
       },
       {
         "Name": "Screen4",
@@ -520,26 +623,175 @@
             "Width": 800,
             "Height": 471,
             "RelativeFilename": "plant_vision_background_800x480.png"
+          },
+          {
+            "Type": "ButtonWithLabel",
+            "Name": "buttonWithLabel1",
+            "Width": 240,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_pressed.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_round_disabled.png",
+            "TextId": "__SingleUse_XNOB",
+            "ReleasedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "PressedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "TextRotation": "0"
           }
         ],
         "Interactions": [
           {
             "InteractionName": "Interaction1",
             "Trigger": {
-              "Type": "TriggerWhen",
-              "ActionCustomTypeName": "Call Screen4 setScreen2"
+              "Type": "TriggerClicked",
+              "TriggerComponent": "buttonWithLabel1"
             },
             "Action": {
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionSlide",
               "ScreenTransitionDirection": "East",
-              "ActionComponent": "Screen2"
+              "ActionComponent": "Screen5"
             }
           }
         ],
         "CustomActions": [
           {
             "Name": "setScreen2"
+          }
+        ]
+      },
+      {
+        "Name": "Screen5",
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "box1",
+            "Width": 800,
+            "Height": 480,
+            "Color": {
+              "Red": 36,
+              "Green": 59,
+              "Blue": 92
+            }
+          },
+          {
+            "Type": "Image",
+            "Name": "image1",
+            "X": 467,
+            "Y": 90,
+            "Width": 274,
+            "Height": 300,
+            "RelativeFilename": "plantVISION_small.png"
+          },
+          {
+            "Type": "ButtonWithLabel",
+            "Name": "buttonWithLabel1",
+            "X": 80,
+            "Y": 90,
+            "Width": 240,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_action.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_normal.png",
+            "TextId": "__SingleUse_UQL2",
+            "ReleasedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "PressedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "TextRotation": "0"
+          },
+          {
+            "Type": "ButtonWithLabel",
+            "Name": "buttonWithLabel2",
+            "X": 80,
+            "Y": 177,
+            "Width": 240,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_action.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_normal.png",
+            "TextId": "__SingleUse_ZT7E",
+            "ReleasedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "PressedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "TextRotation": "0"
+          },
+          {
+            "Type": "ButtonWithLabel",
+            "Name": "buttonWithLabel3",
+            "X": 80,
+            "Y": 260,
+            "Width": 240,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_action.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_normal.png",
+            "TextId": "__SingleUse_2UG2",
+            "ReleasedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "PressedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "TextRotation": "0"
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "buttonWithLabel1"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "Screen2"
+            }
+          },
+          {
+            "InteractionName": "Interaction2",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "buttonWithLabel2"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "Screen4"
+            }
+          },
+          {
+            "InteractionName": "Interaction3",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "buttonWithLabel3"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "Screen3"
+            }
           }
         ]
       }

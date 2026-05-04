@@ -14,7 +14,7 @@ uint16_t touchgfx::Font::getStringWidth(const touchgfx::Unicode::UnicodeChar* te
 {
     va_list pArg;
     va_start(pArg, text);
-    uint16_t width = getStringWidthLTR(TEXT_DIRECTION_LTR, text, pArg);
+    uint16_t width = getStringWidthRTL(TEXT_DIRECTION_LTR, text, pArg);
     va_end(pArg);
     return width;
 }
@@ -23,13 +23,14 @@ uint16_t touchgfx::Font::getStringWidth(touchgfx::TextDirection textDirection, c
 {
     va_list pArg;
     va_start(pArg, text);
-    uint16_t width = getStringWidthLTR(textDirection, text, pArg);
+    uint16_t width = getStringWidthRTL(textDirection, text, pArg);
     va_end(pArg);
     return width;
 }
 
 touchgfx::Unicode::UnicodeChar touchgfx::TextProvider::getNextLigature(TextDirection direction)
 {
+    nextCharacters.replaceAt0(unicodeConverter(direction));
     if (fontGsubTable && nextCharacters.peekChar())
     {
         substituteGlyphs();
@@ -45,13 +46,14 @@ touchgfx::Unicode::UnicodeChar touchgfx::TextProvider::getNextLigature(TextDirec
 void touchgfx::TextProvider::initializeInternal()
 {
     fillInputBuffer();
+    unicodeConverterInit();
 }
 
 void touchgfx::LCD::drawString(touchgfx::Rect widgetArea, const touchgfx::Rect& invalidatedArea, const touchgfx::LCD::StringVisuals& stringVisuals, const touchgfx::Unicode::UnicodeChar* format, ...)
 {
     va_list pArg;
     va_start(pArg, format);
-    drawStringLTR(widgetArea, invalidatedArea, stringVisuals, format, pArg);
+    drawStringRTL(widgetArea, invalidatedArea, stringVisuals, format, pArg);
     va_end(pArg);
 }
 
@@ -61,15 +63,21 @@ extern const touchgfx::TypedText::TypedTextData* const typedTextDatabaseArray[];
 TEXT_LOCATION_FLASH_PRAGMA
 KEEP extern const touchgfx::Unicode::UnicodeChar texts_all_languages[] TEXT_LOCATION_FLASH_ATTRIBUTE = {
     0x4e, 0x65, 0x77, 0x20, 0x54, 0x65, 0x78, 0x74, 0x0, // @0 "New Text"
-    0x2, 0x0, // @9 "<>"
-    0x34, 0x20, 0x6b, 0x6d, 0x2f, 0x68, 0x0, // @11 "4 km/h"
-    0x39, 0x39, 0x39, 0x39, 0x39, 0x0, // @18 "99999"
-    0x2, 0x20, 0x25, 0x0, // @24 "<> %"
-    0x48, 0x6f, 0x6d, 0x65, 0x0, // @28 "Home"
-    0x58, 0x31, 0x0, // @33 "X1"
-    0x58, 0x32, 0x0, // @36 "X2"
-    0x59, 0x31, 0x0, // @39 "Y1"
-    0x59, 0x32, 0x0 // @42 "Y2"
+    0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x30, 0x0, // @9 "0000000"
+    0x2, 0x0, // @17 "<>"
+    0x39, 0x39, 0x39, 0x39, 0x39, 0x0, // @19 "99999"
+    0x49, 0x6d, 0x61, 0x67, 0x65, 0x0, // @25 "Image"
+    0x52, 0x61, 0x64, 0x61, 0x72, 0x0, // @31 "Radar"
+    0x54, 0x65, 0x73, 0x74, 0x31, 0x0, // @37 "Test1"
+    0x2, 0x20, 0x25, 0x0, // @43 "<> %"
+    0x48, 0x4f, 0x4d, 0x45, 0x0, // @47 "HOME"
+    0x48, 0x6f, 0x6d, 0x65, 0x0, // @52 "Home"
+    0x6b, 0x6d, 0x2f, 0x68, 0x0, // @57 "km/h"
+    0x58, 0x31, 0x0, // @62 "X1"
+    0x58, 0x32, 0x0, // @65 "X2"
+    0x59, 0x31, 0x0, // @68 "Y1"
+    0x59, 0x32, 0x0, // @71 "Y2"
+    0x6d, 0x6d, 0x0 // @74 "mm"
 };
 
 TEXT_LOCATION_FLASH_PRAGMA

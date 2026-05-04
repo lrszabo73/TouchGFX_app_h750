@@ -4,8 +4,10 @@
 #include <gui_generated/screen4_screen/Screen4ViewBase.hpp>
 #include <touchgfx/Color.hpp>
 #include <images/BitmapDatabase.hpp>
+#include <texts/TextKeysAndLanguages.hpp>
 
-Screen4ViewBase::Screen4ViewBase()
+Screen4ViewBase::Screen4ViewBase() :
+    buttonCallback(this, &Screen4ViewBase::buttonCallbackHandler)
 {
     __background.setPosition(0, 0, 800, 480);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -18,6 +20,14 @@ Screen4ViewBase::Screen4ViewBase()
     image1.setXY(0, 5);
     image1.setBitmap(touchgfx::Bitmap(BITMAP_PLANT_VISION_BACKGROUND_800X480_ID));
     add(image1);
+
+    buttonWithLabel1.setXY(0, 0);
+    buttonWithLabel1.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUND_DISABLED_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUNDED_PRESSED_ID));
+    buttonWithLabel1.setLabelText(touchgfx::TypedText(T___SINGLEUSE_XNOB));
+    buttonWithLabel1.setLabelColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    buttonWithLabel1.setLabelColorPressed(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    buttonWithLabel1.setAction(buttonCallback);
+    add(buttonWithLabel1);
 }
 
 Screen4ViewBase::~Screen4ViewBase()
@@ -30,10 +40,13 @@ void Screen4ViewBase::setupScreen()
 
 }
 
-void Screen4ViewBase::setScreen2()
+void Screen4ViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
 {
-    //Interaction1
-    //When setScreen2 is called change screen to Screen2
-    //Go to Screen2 with screen transition towards East
-    application().gotoScreen2ScreenSlideTransitionEast();
+    if (&src == &buttonWithLabel1)
+    {
+        //Interaction1
+        //When buttonWithLabel1 clicked change screen to Screen5
+        //Go to Screen5 with screen transition towards East
+        application().gotoScreen5ScreenSlideTransitionEast();
+    }
 }

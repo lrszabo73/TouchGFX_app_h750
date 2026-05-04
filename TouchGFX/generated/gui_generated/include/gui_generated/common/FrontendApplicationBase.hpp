@@ -24,10 +24,20 @@ public:
     void gotoScreen1ScreenNoTransition();
 
     // Screen2
-    void gotoScreen2ScreenSlideTransitionEast();
+    void gotoScreen2ScreenNoTransition();
+
+    // Screen3
+    void gotoScreen3ScreenNoTransition();
 
     // Screen4
     void gotoScreen4ScreenSlideTransitionEast();
+
+    void gotoScreen4ScreenNoTransition();
+
+    // Screen5
+    void gotoScreen5ScreenSlideTransitionEast();
+
+    void gotoScreen5ScreenNoTransition();
 
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
@@ -38,10 +48,20 @@ protected:
     void gotoScreen1ScreenNoTransitionImpl();
 
     // Screen2
-    void gotoScreen2ScreenSlideTransitionEastImpl();
+    void gotoScreen2ScreenNoTransitionImpl();
+
+    // Screen3
+    void gotoScreen3ScreenNoTransitionImpl();
 
     // Screen4
     void gotoScreen4ScreenSlideTransitionEastImpl();
+
+    void gotoScreen4ScreenNoTransitionImpl();
+
+    // Screen5
+    void gotoScreen5ScreenSlideTransitionEastImpl();
+
+    void gotoScreen5ScreenNoTransitionImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP
